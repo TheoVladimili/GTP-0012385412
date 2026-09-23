@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: var(--font-inter), sans-serif;
+    --font-body: var(--font-montserrat), sans-serif;
+
+    /* Custom Design System Colors */
+    --color-primary: #2a3a4e;
+    --color-primary-container: #415166;
+    --color-on-primary: #ffffff;
+    --color-secondary: #005eb3;
+    --color-secondary-container: #8cbcff;
+    --color-surface: #f8f9ff;
+    --color-surface-container: #eceef4;
+    --color-surface-container-low: #f2f3fa;
+    --color-surface-container-high: #e1e2e9;
+    --color-on-surface: #191c20;
+    --color-on-surface-variant: #44474c;
+    --color-outline: #74777d;
+  }
+
+  body {
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}

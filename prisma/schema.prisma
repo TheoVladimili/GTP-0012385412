@@ -1,0 +1,104 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  TEACHER
+  VALIDATOR
+  ADMIN
+}
+
+enum MaterialStatus {
+  DRAFT
+  SUBMITTED
+  NEEDS_REVISION
+  APPROVED
+  REJECTED
+}
+
+enum GradeYear {
+  YEAR_1
+  YEAR_2
+  YEAR_3
+  YEAR_4
+  YEAR_5
+}
+
+model User {
+  id            String         @id @default(uuid())
+  email         String         @unique
+  name          String
+  role          Role           @default(TEACHER)
+  isPreApproved Boolean        @default(false)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  materials     Material[]     @relation("AuthorMaterials")
+  reviews       Review[]       @relation("ValidatorReviews")
+  auditLogs     AuditLog[]
+
+  @@map("users")
+}
+
+model Subject {
+  id        String     @id @default(uuid())
+  name      String     @unique
+  slug      String     @unique
+  materials Material[]
+
+  @@map("subjects")
+}
+
+model Material {
+  id            String         @id @default(uuid())
+  title         String
+  description   String
+  gradeYear     GradeYear
+  bnccCode      String
+  subjectId     String
+  subject       Subject        @relation(fields: [subjectId], references: [id])
+
+  fileUrl       String
+  fileKey       String
+  fileSize      Int
+  fileMimeType  String
+  status        MaterialStatus @default(SUBMITTED)
+  authorId      String
+  author        User           @relation("AuthorMaterials", fields: [authorId], references: [id])
+  reviews       Review[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  @@index([status, gradeYear, subjectId])
+  @@map("materials")
+}
+
+model Review {
+  id          String         @id @default(uuid())
+  materialId  String
+  material    Material       @relation(fields: [materialId], references: [id], onDelete: Cascade)
+  validatorId String
+  validator   User           @relation("ValidatorReviews", fields: [validatorId], references: [id])
+  status      MaterialStatus
+  feedback    String?
+  createdAt   DateTime       @default(now())
+
+  @@map("reviews")
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  action    String
+  targetId  String?
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  @@map("audit_logs")
+}

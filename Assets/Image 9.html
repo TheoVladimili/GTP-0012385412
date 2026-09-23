@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduCom - Submissão de Recurso Didático</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2a3a4e",
+            "primary-container": "#415166",
+            "secondary": "#005eb3",
+            "secondary-container": "#5b9ffe",
+            "tertiary": "#003a6c",
+            "brand-dark": "#2B2E33",
+            "brand-slate": "#415166",
+            "brand-soft": "#9BAFCC",
+            "brand-accent-soft": "#8CBCFF",
+            "brand-blue": "#5CA0FF",
+            "surface": "#f8f9ff",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f2f3fa",
+            "surface-container": "#eceef4",
+            "surface-container-high": "#e6e8ee",
+            "on-surface": "#191c20",
+            "on-surface-variant": "#44474c",
+            "outline": "#74777d",
+            "outline-variant": "#c4c6cd"
+          },
+          fontFamily: {
+            headline: ["Inter", "sans-serif"],
+            body: ["Montserrat", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f8f9ff;
+    }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#f8f9ff] text-on-surface antialiased min-h-screen flex flex-col">
+<!-- Top Global Header -->
+<header class="sticky top-0 z-40 h-16 w-full border-b border-surface-container-high bg-white/95 backdrop-blur-md px-4 sm:px-8">
+<div class="max-w-7xl mx-auto h-full flex items-center justify-between">
+<!-- Left: Logo & Context -->
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<svg class="h-8 w-auto" fill="none" viewbox="0 0 240 56" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#415166" height="44" rx="10" width="44" x="6" y="6"></rect>
+<path d="M16 28L28 18L40 28L28 38L16 28Z" fill="#5CA0FF"></path>
+<path d="M22 31L28 36L34 31V37L28 42L22 37V31Z" fill="#8CBCFF"></path>
+<circle cx="28" cy="24" fill="#FFFFFF" r="3"></circle>
+<text fill="#2B2E33" font-family="Inter, sans-serif" font-size="21" font-weight="700" letter-spacing="-0.5px" x="60" y="32">EduCom</text>
+<text fill="#415166" font-family="Montserrat, sans-serif" font-size="10" font-weight="500" letter-spacing="0.5px" x="60" y="44">REPOSITÓRIO PEDAGÓGICO</text>
+</svg>
+</div>
+<div class="hidden md:flex items-center gap-2 pl-4 border-l border-surface-container-high text-xs text-on-surface-variant font-medium">
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-semibold text-primary">Rede Municipal</span>
+<span>Franco da Rocha • Ensino Fundamental I</span>
+</div>
+</div>
+<!-- Right: User & Status -->
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-low text-xs font-medium text-brand-slate border border-outline-variant/40">
+<svg class="w-3.5 h-3.5 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Sincronizado BNCC 2024</span>
+</div>
+<div class="flex items-center gap-3 pl-3 border-l border-surface-container-high">
+<div class="hidden sm:flex flex-col text-right">
+<span class="text-xs font-semibold text-brand-dark font-heading">Prof. Marcelo Ramos</span>
+<span class="text-[11px] text-on-surface-variant">EMEB Paulo Freire</span>
+</div>
+<div class="w-9 h-9 rounded-full bg-primary-container text-white flex items-center justify-center font-heading text-xs font-semibold shadow-sm">
+            MR
+          </div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Scrollable Container with generous vertical rhythm -->
+<main class="flex-1 w-full overflow-y-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24">
+<div class="max-w-4xl mx-auto flex flex-col gap-8">
+<!-- Breadcrumbs & Quick Nav -->
+<nav aria-label="Navegação" class="flex items-center justify-between text-xs text-on-surface-variant">
+<ol class="flex items-center gap-2">
+<li>
+<a class="hover:text-primary transition-colors" href="#">Início</a>
+</li>
+<li>
+<svg class="w-3.5 h-3.5 text-outline" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</li>
+<li>
+<a class="hover:text-primary transition-colors" href="#">Meus Materiais</a>
+</li>
+<li>
+<svg class="w-3.5 h-3.5 text-outline" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</li>
+<li class="font-semibold text-brand-slate">Nova Submissão Pedagógica</li>
+</ol>
+<span class="hidden sm:inline-block font-mono text-[11px] text-outline bg-surface-container px-2 py-0.5 rounded">
+          Fluxo de Homologação
+        </span>
+</nav>
+<!-- Section Title & Description -->
+<div class="flex flex-col gap-2">
+<h1 class="font-heading text-2xl sm:text-3xl font-bold text-brand-dark tracking-tight">
+          Submissão de Recurso Didático
+        </h1>
+<p class="text-sm sm:text-base text-on-surface-variant max-w-2xl leading-relaxed">
+          Envie planos de aula, sequências e atividades alinhadas à BNCC para homologação pedagógica e compartilhamento com a rede municipal de Franco da Rocha.
+        </p>
+</div>
+<!-- STEPPER WIZARD BAR -->
+<div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-surface-container-high flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-xs font-semibold text-brand-slate uppercase tracking-wider">Etapa 1 de 3</span>
+<span class="text-xs text-outline">•</span>
+<span class="text-xs text-on-surface-variant font-medium">Progresso geral: 33% concluído</span>
+</div>
+<span class="hidden sm:inline-block text-xs font-semibold text-brand-blue bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-100">
+            Rascunho Ativo
+          </span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-primary-container h-2 rounded-full transition-all duration-500 ease-out" style="width: 33.33%;"></div>
+</div>
+<!-- Stepper Indicators Grid -->
+<div class="grid grid-cols-3 gap-3 pt-2">
+<!-- Step 1 (Active) -->
+<div class="flex items-center gap-3 p-2.5 sm:p-3 rounded-xl bg-blue-50/70 border border-brand-blue/30 text-primary transition-colors">
+<div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary-container text-white flex items-center justify-center font-heading text-xs font-bold shrink-0 shadow-sm">
+              1
+            </div>
+<div class="flex flex-col min-w-0">
+<span class="font-heading text-xs sm:text-sm font-bold text-brand-dark truncate leading-tight">Dados Pedagógicos</span>
+<span class="text-[11px] text-brand-slate hidden sm:block truncate">BNCC &amp; Metadados</span>
+</div>
+</div>
+<!-- Step 2 (Upcoming) -->
+<div class="flex items-center gap-3 p-2.5 sm:p-3 rounded-xl bg-surface-container-low border border-transparent text-outline transition-colors">
+<div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center font-heading text-xs font-semibold shrink-0">
+              2
+            </div>
+<div class="flex flex-col min-w-0">
+<span class="font-heading text-xs sm:text-sm font-semibold text-on-surface-variant truncate leading-tight">Upload de Arquivo</span>
+<span class="text-[11px] text-outline hidden sm:block truncate">PDF ou DOCX (50MB)</span>
+</div>
+</div>
+<!-- Step 3 (Upcoming) -->
+<div class="flex items-center gap-3 p-2.5 sm:p-3 rounded-xl bg-surface-container-low border border-transparent text-outline transition-colors">
+<div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center font-heading text-xs font-semibold shrink-0">
+              3
+            </div>
+<div class="flex flex-col min-w-0">
+<span class="font-heading text-xs sm:text-sm font-semibold text-on-surface-variant truncate leading-tight">Validação &amp; LGPD</span>
+<span class="text-[11px] text-outline hidden sm:block truncate">Conformidade e envio</span>
+</div>
+</div>
+</div>
+</div>
+<!-- MAIN FORM CONTAINER (Etapa 1: Dados Pedagógicos & BNCC) -->
+<form class="flex flex-col gap-6" onsubmit="event.preventDefault();">
+<section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-surface-container-high flex flex-col gap-6">
+<!-- Section Title Header -->
+<div class="flex items-start justify-between pb-4 border-b border-surface-container">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low text-primary-container flex items-center justify-center shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<h2 class="font-heading text-lg sm:text-xl font-bold text-brand-dark">
+                  Etapa 1: Dados Pedagógicos &amp; Alinhamento BNCC
+                </h2>
+<span class="text-xs sm:text-sm text-on-surface-variant">
+                  Classificação curricular e identificação para busca no acervo municipal
+                </span>
+</div>
+</div>
+<span class="text-xs font-semibold text-brand-slate bg-surface-container px-3 py-1 rounded-full">
+              Obrigatório
+            </span>
+</div>
+<!-- Input: Resource Title -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="font-heading text-sm font-semibold text-brand-dark" for="titulo-recurso">
+                Título do Recurso Didático <span class="text-red-500">*</span>
+</label>
+<span class="text-xs text-outline font-mono" id="char-counter">59 / 120 caracteres</span>
+</div>
+<input class="w-full px-4 py-3 rounded-xl bg-[#fcfdfe] border border-outline-variant text-brand-dark text-sm placeholder:text-outline focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 transition-all outline-none" id="titulo-recurso" maxlength="120" oninput="document.getElementById('char-counter').innerText = this.value.length + ' / 120 caracteres'" placeholder="Ex: Sequência Didática: Explorando Polígonos no Cotidiano Urbano" type="text" value="Sequência Didática: Explorando Polígonos no Cotidiano Urbano"/>
+<p class="text-xs text-on-surface-variant">
+              Utilize um título claro e descritivo para facilitar a localização por outros educadores da rede.
+            </p>
+</div>
+<!-- Input: Description & Methodology -->
+<div class="flex flex-col gap-2">
+<label class="font-heading text-sm font-semibold text-brand-dark" for="descricao-pedagogica">
+              Descrição Pedagógica e Metodologia Aplicada <span class="text-red-500">*</span>
+</label>
+<textarea class="w-full p-4 rounded-xl bg-[#fcfdfe] border border-outline-variant text-brand-dark text-sm placeholder:text-outline focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 transition-all outline-none resize-y leading-relaxed" id="descricao-pedagogica" placeholder="Descreva o contexto de aplicação, etapas propostas (acolhida, prática guiada e encerramento), materiais necessários e métodos de avaliação formativa..." rows="4">Atividade investigativa elaborada para identificação de formas geométricas planas e espaciais no trajeto entre a residência e a escola, culminando na construção de maquetes com materiais recicláveis e registro no caderno pedagógico.</textarea>
+<p class="text-xs text-on-surface-variant">
+              Compartilhe recomendações práticas e possíveis adaptações para turmas inclusivas.
+            </p>
+</div>
+<!-- Dropdowns Row (Grade, Discipline, Thematic Area) -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+<!-- Grade -->
+<div class="flex flex-col gap-2">
+<label class="font-heading text-sm font-semibold text-brand-dark" for="ano-escolar">
+                Ano Escolar <span class="text-red-500">*</span>
+</label>
+<div class="relative">
+<select class="w-full appearance-none px-3.5 py-2.5 rounded-xl bg-[#fcfdfe] border border-outline-variant text-brand-dark text-sm focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none cursor-pointer" id="ano-escolar">
+<option value="1ano">1º Ano - Fund. I</option>
+<option value="2ano">2º Ano - Fund. I</option>
+<option selected="" value="3ano">3º Ano - Fund. I</option>
+<option value="4ano">4º Ano - Fund. I</option>
+<option value="5ano">5º Ano - Fund. I</option>
+</select>
+<svg class="w-4 h-4 text-outline pointer-events-none absolute right-3 top-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Discipline -->
+<div class="flex flex-col gap-2">
+<label class="font-heading text-sm font-semibold text-brand-dark" for="componente-curricular">
+                Componente Curricular <span class="text-red-500">*</span>
+</label>
+<div class="relative">
+<select class="w-full appearance-none px-3.5 py-2.5 rounded-xl bg-[#fcfdfe] border border-outline-variant text-brand-dark text-sm focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none cursor-pointer" id="componente-curricular">
+<option value="lingua-portuguesa">Língua Portuguesa</option>
+<option selected="" value="matematica">Matemática</option>
+<option value="ciencias">Ciências Naturais</option>
+<option value="historia">História</option>
+<option value="geografia">Geografia</option>
+<option value="arte">Arte</option>
+<option value="educacao-fisica">Educação Física</option>
+</select>
+<svg class="w-4 h-4 text-outline pointer-events-none absolute right-3 top-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Thematic Area -->
+<div class="flex flex-col gap-2">
+<label class="font-heading text-sm font-semibold text-brand-dark" for="unidade-tematica">
+                Unidade Temática <span class="text-red-500">*</span>
+</label>
+<div class="relative">
+<select class="w-full appearance-none px-3.5 py-2.5 rounded-xl bg-[#fcfdfe] border border-outline-variant text-brand-dark text-sm focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none cursor-pointer" id="unidade-tematica">
+<option selected="" value="geometria">Geometria e Espaço</option>
+<option value="numeros">Números e Operações</option>
+<option value="grandezas">Grandezas e Medidas</option>
+<option value="probabilidade">Probabilidade e Estatística</option>
+</select>
+<svg class="w-4 h-4 text-outline pointer-events-none absolute right-3 top-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- BNCC Code Auto-complete & Selection Section -->
+<div class="flex flex-col gap-2 pt-2 relative" id="bncc-container">
+<div class="flex items-center justify-between">
+<label class="font-heading text-sm font-semibold text-brand-dark flex items-center gap-2" for="bncc-search">
+<span>Habilidade BNCC Vinculada</span>
+<span class="text-red-500">*</span>
+</label>
+<span class="text-xs font-semibold text-brand-slate">Base Curricular Oficial • Franco da Rocha</span>
+</div>
+<div class="relative flex items-center">
+<svg class="w-4 h-4 text-outline absolute left-3.5 pointer-events-none" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<input class="w-full pl-10 pr-24 py-3 rounded-xl bg-[#fcfdfe] border border-outline-variant text-brand-dark text-sm focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none" id="bncc-search" onfocus="document.getElementById('bncc-dropdown').classList.remove('hidden')" placeholder="Busque por código (ex: EF03MA15) ou palavras-chave (ex: polígonos, figuras geométricas)..." type="text" value="EF03MA15"/>
+<button class="absolute right-2 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-brand-slate transition-colors" onclick="document.getElementById('bncc-dropdown').classList.toggle('hidden')" type="button">
+                Buscar
+              </button>
+</div>
+<!-- Autocomplete Dropdown List -->
+<div class="hidden absolute top-[102%] left-0 right-0 z-30 bg-white rounded-xl shadow-lg border border-surface-container-high p-2 flex flex-col gap-1" id="bncc-dropdown">
+<div class="p-3 rounded-lg hover:bg-surface-container transition-colors cursor-pointer" onclick="selectSkill('EF03MA15', 'Classificar e comparar figuras geométricas espaciais (prismas, pirâmides, cilindros, cones e esferas)')">
+<div class="flex items-center justify-between mb-1">
+<span class="font-mono text-xs font-bold text-brand-blue bg-blue-50 px-2 py-0.5 rounded">EF03MA15</span>
+<span class="text-xs text-on-surface-variant font-medium">3º Ano • Matemática</span>
+</div>
+<p class="text-xs text-brand-dark leading-relaxed">
+                  Classificar e comparar figuras geométricas espaciais relacionando-as com objetos do mundo físico e suas características.
+                </p>
+</div>
+<div class="p-3 rounded-lg hover:bg-surface-container transition-colors cursor-pointer" onclick="selectSkill('EF03MA16', 'Reconhecer figuras congruentes em malhas quadriculadas')">
+<div class="flex items-center justify-between mb-1">
+<span class="font-mono text-xs font-bold text-brand-blue bg-blue-50 px-2 py-0.5 rounded">EF03MA16</span>
+<span class="text-xs text-on-surface-variant font-medium">3º Ano • Matemática</span>
+</div>
+<p class="text-xs text-brand-dark leading-relaxed">
+                  Reconhecer figuras congruentes, usando sobreposição e desenhos em malhas quadriculadas ou triangulares.
+                </p>
+</div>
+</div>
+<!-- Selected BNCC Card -->
+<div class="mt-2 p-4 rounded-xl bg-blue-50/50 border border-blue-100 flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0 mt-0.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex items-center gap-2">
+<span class="font-mono text-xs font-bold text-brand-blue bg-white px-2 py-0.5 rounded border border-blue-200">
+                    EF03MA15
+                  </span>
+<span class="text-xs font-semibold text-brand-slate">Matemática • Geometria</span>
+</div>
+<p class="text-xs sm:text-sm text-brand-dark mt-1.5 leading-relaxed">
+                  Classificar e comparar figuras geométricas espaciais (prismas, pirâmides, cilindros, cones e esferas), relacionando-as com objetos do cotidiano e espaços urbanos do município.
+                </p>
+</div>
+</div>
+</div>
+<!-- Pedagogical Guidelines Callout (Inside Step 1 with ample breathing room) -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-surface-container flex items-start gap-3">
+<svg class="w-5 h-5 text-brand-slate shrink-0 mt-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<div class="text-xs text-on-surface-variant leading-relaxed">
+<span class="font-semibold text-brand-dark">Dica da Coordenação Pedagógica:</span>
+              O detalhamento correto das habilidades garante que o material seja catalogado no repositório municipal e disponibilizado com maior agilidade para os demais professores de Franco da Rocha.
+            </div>
+</div>
+</section>
+<!-- FOOTER / NAVIGATION CONTROLS -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+<div class="flex items-center gap-2 text-xs text-on-surface-variant order-2 sm:order-1">
+<svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Rascunho salvo automaticamente na nuvem</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto order-1 sm:order-2">
+<button class="flex-1 sm:flex-none px-5 py-3 rounded-xl border border-outline-variant bg-white hover:bg-surface-container-low text-xs sm:text-sm font-semibold text-brand-slate transition-all duration-150" type="button">
+              Cancelar
+            </button>
+<button class="flex-1 sm:flex-none px-6 py-3 rounded-xl bg-primary-container hover:bg-brand-dark text-white text-xs sm:text-sm font-semibold shadow-md transition-all duration-150 flex items-center justify-center gap-2 hover:shadow-lg active:scale-95" type="button">
+<span>Avançar para Upload</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+</form>
+</div>
+</main>
+<script>
+    function selectSkill(code, desc) {
+      const input = document.getElementById('bncc-search');
+      const dropdown = document.getElementById('bncc-dropdown');
+      if (input) input.value = code;
+      if (dropdown) dropdown.classList.add('hidden');
+    }
+
+    // Close BNCC dropdown on outside click
+    document.addEventListener('click', function(e) {
+      const container = document.getElementById('bncc-container');
+      const dropdown = document.getElementById('bncc-dropdown');
+      if (container && !container.contains(e.target) && dropdown) {
+        dropdown.classList.add('hidden');
+      }
+    });
+  </script>
+</body></html>
