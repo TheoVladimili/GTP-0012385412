@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-error": "#ffffff", "surface-container-high": "#e6e8ee", "on-secondary-fixed-variant": "#004689", "on-secondary-container": "#003569", "on-secondary": "#ffffff", "tertiary-fixed-dim": "#a4c9ff", "on-background": "#191c20", "surface": "#f8f9ff", "on-tertiary": "#ffffff", "error": "#ba1a1a", "on-tertiary-fixed-variant": "#014883", "primary-fixed-dim": "#b7c8e1", "on-primary": "#ffffff", "tertiary-fixed": "#d4e3ff", "inverse-surface": "#2e3136", "surface-tint": "#4f6075", "on-surface-variant": "#44474c", "secondary": "#005eb3", "on-secondary-fixed": "#001b3c", "surface-dim": "#d8dae0", "tertiary-container": "#15518d", "secondary-container": "#5b9ffe", "on-tertiary-fixed": "#001c39", "secondary-fixed-dim": "#a8c8ff", "surface-container-lowest": "#ffffff", "surface-bright": "#f8f9ff", "on-primary-fixed": "#0b1c2f", "primary-container": "#415166", "surface-container-low": "#f2f3fa", "surface-variant": "#e1e2e9", "background": "#f8f9ff", "on-tertiary-container": "#9cc5ff", "on-primary-container": "#b3c4dc", "tertiary": "#003a6c", "outline": "#74777d", "inverse-on-surface": "#eff0f7", "primary-fixed": "#d3e4fe", "on-surface": "#191c20", "outline-variant": "#c4c6cd", "error-container": "#ffdad6", "inverse-primary": "#b7c8e1", "primary": "#2a3a4e", "secondary-fixed": "#d5e3ff", "on-primary-fixed-variant": "#38485c", "surface-container-highest": "#e1e2e9", "on-error-container": "#93000a", "surface-container": "#eceef4" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "gutter-tablet": "1rem", "space-sm": "0.75rem", "max-container": "84rem", "space-md": "1rem", "space-2xs": "0.25rem", "space-xl": "2rem", "gutter-desktop": "1.5rem", "space-lg": "1.5rem", "space-xs": "0.5rem", "sidebar-collapsed": "4.5rem", "sidebar-width": "16rem", "space-2xl": "3rem", "gutter-mobile": "0.75rem" }, "fontFamily": { "body-md": [ "Montserrat" ], "label-md": [ "Montserrat" ], "headline-xl-mobile": [ "Inter" ], "headline-xl": [ "Inter" ], "headline-sm": [ "Inter" ], "body-lg": [ "Montserrat" ], "headline-lg": [ "Inter" ], "headline-lg-mobile": [ "Inter" ], "code-sm": [ "Inter" ], "headline-md": [ "Inter" ], "body-sm": [ "Montserrat" ], "label-sm": [ "Montserrat" ] }, "fontSize": { "body-md": [ "0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" } ], "label-md": [ "0.875rem", { "lineHeight": "1.25rem", "fontWeight": "500" } ], "headline-xl-mobile": [ "1.625rem", { "lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-xl": [ "2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.025em", "fontWeight": "700" } ], "headline-sm": [ "1rem", { "lineHeight": "1.375rem", "letterSpacing": "-0.005em", "fontWeight": "600" } ], "body-lg": [ "1rem", { "lineHeight": "1.5rem", "fontWeight": "400" } ], "headline-lg": [ "1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "headline-lg-mobile": [ "1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "code-sm": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.05em", "fontWeight": "500" } ], "headline-md": [ "1.125rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-sm": [ "0.75rem", { "lineHeight": "1.125rem", "fontWeight": "400" } ], "label-sm": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md"><aside class="fixed left-0 top-0 h-full w-sidebar-width bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between pt-space-md pb-space-lg"><div class="flex flex-col"><div class="px-space-md pb-space-md flex items-center justify-between"><div class="flex items-center gap-space-xs"><div class="w-2 h-2 rounded-full bg-secondary"></div><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Rede Municipal</span></div><span class="font-code-sm text-code-sm text-outline px-space-2xs py-0.5 bg-surface-container rounded">v2.4</span></div><div class="px-space-md mb-space-md"><div class="bg-surface-container p-space-xs rounded-xl flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[20px]">school</span><div class="flex flex-col min-w-0 flex-1"><span class="font-label-sm text-label-sm text-on-surface truncate">EMEB Paulo Freire</span><span class="font-body-sm text-body-sm text-on-surface-variant truncate">Franco da Rocha - SP</span></div><button class="text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">unfold_more</span></button></div></div><nav class="px-space-xs flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary font-semibold rounded-xl"><div class="px-space-xs py-1 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">Pedagógico</div><a aria-current="page" class="flex items-center justify-between px-space-xs py-2 transition-colors bg-primary-container text-on-primary font-semibold rounded-xl" data-path="repositorio-acervo-publico" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[20px]">library_books</span><span class="font-label-md text-label-md">Acervo Público</span></div></a><a class="flex items-center justify-between px-space-xs py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="meus-materiais-e-envio" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[20px]">upload_file</span><span class="font-label-md text-label-md">Meus Materiais</span></div></a><a class="flex items-center justify-between px-space-xs py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="fila-de-moderacao-pedagogica" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[20px]">rule</span><span class="font-label-md text-label-md">Moderação</span></div><span class="px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">14</span></a><div class="px-space-xs pt-space-sm pb-1 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">Gestão &amp; Rede</div><a class="flex items-center justify-between px-space-xs py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="relatorios-e-exportacao" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[20px]">table_chart</span><span class="font-label-md text-label-md">Relatórios &amp; XLSX</span></div></a><a class="flex items-center justify-between px-space-xs py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="auditoria-e-logs" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[20px]">history</span><span class="font-label-md text-label-md">Auditoria &amp; Logs</span></div></a></nav></div><div class="px-space-md flex flex-col gap-space-xs"><div class="p-space-xs rounded-xl bg-surface-container flex items-center justify-between"><div class="flex items-center gap-space-2xs"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Sincronizado BNCC</span></div><span class="material-symbols-outlined text-outline text-[16px]">cloud_done</span></div><div class="pt-space-xs flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm"><span>Secretaria da Educação</span><a class="hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined text-[16px]">help</span></a></div></div></aside><div class="pl-sidebar-width"><header class="fixed top-0 left-sidebar-width right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-desktop"><div class="flex items-center gap-space-md"><img alt="EduCom Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XdQOxsFhFqC2-SXamq7Bd8xWjjOOKvZ8GV1uynOkHfj6RKGEGSFoNU_AgdROStUpEzLGJszUFkJELBomYW7XGYx5blAoAN_59YlGZa13QuC8y5roNoCPE1XphG61M9lcp3hH8pQ354WpVHviDQcwV4m-tGZE3wOBBAZtBo6psebXFP9pqvTGx6V4MGmas6FGvH7WJVcdncX22AYv_cAKyuTNgrwi1r3ciJsnSP509ruRhSvrziaBsBdg"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">EduCom</span><span class="font-body-sm text-body-sm text-on-surface-variant">Repositório Pedagógico Municipal</span></div><div class="hidden xl:flex items-center gap-space-xs pl-space-lg text-on-surface-variant font-label-sm text-label-sm"><span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface">1º ao 5º Ano</span><span>Ensino Fundamental I</span></div></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-xs px-space-xs py-1 rounded-xl bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px] text-secondary">verified</span><span>Franco da Rocha Conectada</span></div><button class="relative p-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Notificações de Revisão" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary"></span></button><div class="flex items-center gap-space-xs pl-space-xs"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-md text-label-md text-on-surface font-semibold">Prof. Marcelo Ramos</span><span class="font-body-sm text-body-sm text-on-surface-variant">Validador · EMEB Paulo Freire</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 px-gutter-desktop bg-surface"><div class="flex flex-col w-full pb-space-2xl">
+<!-- Top Visual Subtle Ambient Accent -->
+<div class="relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-surface-container-high via-surface-container to-surface-container-low p-space-lg mb-space-lg shadow-sm">
+<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-secondary-fixed opacity-40 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="max-w-3xl">
+<div class="flex items-center gap-space-xs mb-space-2xs">
+<span class="px-2 py-0.5 rounded text-code-sm font-code-sm font-semibold tracking-wide bg-secondary text-on-secondary uppercase">Rede Municipal</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">SME Franco da Rocha · Portal Oficial de Práticas</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-background tracking-tight">Repositório Pedagógico Municipal de Franco da Rocha</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1">Acervo curado e homologado de práticas pedagógicas, avaliações e sequências didáticas do 1º ao 5º ano.</p>
+</div>
+<!-- Live Synced Badge (ISR Context) -->
+<div class="flex items-center gap-space-xs self-start md:self-auto bg-surface-container-lowest px-space-sm py-2 rounded-lg shadow-sm">
+<div class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-primary">Sincronização ISR Ativa</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Cache Estático Municipal</span>
+</div>
+</div>
+</div>
+<!-- Universal Search Bar -->
+<div class="mt-space-lg">
+<form class="relative flex flex-col sm:flex-row items-stretch gap-2" onsubmit="event.preventDefault();">
+<div class="relative flex-1">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-outline">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+</div>
+<input class="w-full pl-11 pr-4 py-3 bg-surface-container-lowest text-on-surface font-body-md text-body-md rounded-lg shadow-sm placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary focus:bg-surface" id="searchInput" placeholder="Pesquise por código BNCC (ex: EF02MA01), tema, disciplina ou palavra-chave..." type="search"/>
+</div>
+<button class="px-space-lg py-3 bg-primary hover:bg-on-background text-on-primary font-label-md text-label-md rounded-lg flex items-center justify-center gap-2 transition-colors shadow-sm" type="submit">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+<span>Buscar Recursos</span>
+</button>
+</form>
+<!-- Clickable Quick Tags -->
+<div class="flex flex-wrap items-center gap-2 mt-space-sm pt-space-xs text-on-surface-variant">
+<span class="font-label-sm text-label-sm flex items-center gap-1 text-outline">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="m20.59 13.41-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" x2="7.01" y1="7" y2="7"></line></svg>
+          Temas frequentes:
+        </span>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest hover:bg-surface-container-high text-primary font-label-sm text-label-sm transition-colors shadow-sm" type="button">Alfabetização</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest hover:bg-surface-container-high text-primary font-label-sm text-label-sm transition-colors shadow-sm" type="button">Frações e Medidas</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest hover:bg-surface-container-high text-primary font-label-sm text-label-sm transition-colors shadow-sm" type="button">Meio Ambiente Juquery</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest hover:bg-surface-container-high text-primary font-label-sm text-label-sm transition-colors shadow-sm" type="button">História Local</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest hover:bg-surface-container-high text-primary font-label-sm text-label-sm transition-colors shadow-sm" type="button">Educação Inclusiva</button>
+</div>
+</div>
+</div>
+<!-- Main Content Layout (2-Column) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: Faceted Filter Panel -->
+<aside class="lg:col-span-3 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<div class="flex items-center justify-between pb-space-xs mb-space-sm border-b border-surface-container">
+<div class="flex items-center gap-2 text-primary font-headline-sm text-headline-sm">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><line x1="4" x2="4" y1="21" y2="14"></line><line x1="4" x2="4" y1="10" y2="3"></line><line x1="12" x2="12" y1="21" y2="12"></line><line x1="12" x2="12" y1="8" y2="3"></line><line x1="20" x2="20" y1="21" y2="16"></line><line x1="20" x2="20" y1="12" y2="3"></line><line x1="1" x2="7" y1="14" y2="14"></line><line x1="9" x2="15" y1="8" y2="8"></line><line x1="17" x2="23" y1="16" y2="16"></line></svg>
+<span>Filtros Facetados</span>
+</div>
+<button class="text-secondary font-label-sm text-label-sm hover:underline" type="button">Limpar</button>
+</div>
+<!-- Facet: Ano Escolar -->
+<div class="mb-space-md">
+<span class="block font-label-sm text-label-sm uppercase tracking-wider text-outline mb-space-xs font-semibold">Ano de Ensino</span>
+<div class="flex flex-col gap-1.5">
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-2">
+<input checked="" class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">1º Ano</span>
+</div>
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant">42</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-2">
+<input checked="" class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">2º Ano</span>
+</div>
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant">38</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-2">
+<input checked="" class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">3º Ano</span>
+</div>
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant">51</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-2">
+<input class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">4º Ano</span>
+</div>
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant">29</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-2">
+<input class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">5º Ano</span>
+</div>
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant">44</span>
+</label>
+</div>
+</div>
+<!-- Facet: Disciplinas -->
+<div class="mb-space-md pt-space-xs border-t border-surface-container">
+<span class="block font-label-sm text-label-sm uppercase tracking-wider text-outline mb-space-xs font-semibold">Componente Curricular</span>
+<div class="flex flex-col gap-1.5">
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-2">
+<input checked="" class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">Língua Portuguesa</span>
+</div>
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant">68</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-2">
+<input checked="" class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">Matemática</span>
+</div>
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant">52</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-2">
+<input class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">Ciências da Natureza</span>
+</div>
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant">31</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-2">
+<input class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">Geografia</span>
+</div>
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant">21</span>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-2">
+<input class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">História &amp; Memória Local</span>
+</div>
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant">12</span>
+</label>
+</div>
+</div>
+<!-- Facet: Tipo de Recurso -->
+<div class="mb-space-md pt-space-xs border-t border-surface-container">
+<span class="block font-label-sm text-label-sm uppercase tracking-wider text-outline mb-space-xs font-semibold">Tipo de Material</span>
+<div class="flex flex-col gap-1.5">
+<label class="flex items-center gap-2 p-1.5 rounded hover:bg-surface-container-low cursor-pointer text-body-md font-body-md text-on-surface">
+<input checked="" class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span>Sequência Didática</span>
+</label>
+<label class="flex items-center gap-2 p-1.5 rounded hover:bg-surface-container-low cursor-pointer text-body-md font-body-md text-on-surface">
+<input class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span>Avaliação Diagnóstica</span>
+</label>
+<label class="flex items-center gap-2 p-1.5 rounded hover:bg-surface-container-low cursor-pointer text-body-md font-body-md text-on-surface">
+<input class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span>Jogo Pedagógico</span>
+</label>
+<label class="flex items-center gap-2 p-1.5 rounded hover:bg-surface-container-low cursor-pointer text-body-md font-body-md text-on-surface">
+<input class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span>Projeto Interdisciplinar</span>
+</label>
+</div>
+</div>
+<!-- Facet: Formato Arquivo -->
+<div class="pt-space-xs border-t border-surface-container">
+<span class="block font-label-sm text-label-sm uppercase tracking-wider text-outline mb-space-xs font-semibold">Formato do Arquivo</span>
+<div class="flex flex-col gap-1.5">
+<label class="flex items-center gap-2 p-1.5 rounded hover:bg-surface-container-low cursor-pointer text-body-md font-body-md text-on-surface">
+<input checked="" class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span>PDF para Impressão</span>
+</label>
+<label class="flex items-center gap-2 p-1.5 rounded hover:bg-surface-container-low cursor-pointer text-body-md font-body-md text-on-surface">
+<input class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span>Apresentação Digital (Slides)</span>
+</label>
+<label class="flex items-center gap-2 p-1.5 rounded hover:bg-surface-container-low cursor-pointer text-body-md font-body-md text-on-surface">
+<input class="rounded text-primary focus:ring-secondary w-4 h-4" type="checkbox"/>
+<span>Material Manipulável / Recortável</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Quick Institutional Note Card -->
+<div class="bg-surface-container p-space-md rounded-xl">
+<div class="flex items-start gap-2.5">
+<svg class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-primary">Protocolo de Homologação</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+              Todos os materiais passam por dupla verificação por professores coordenadores e comissão curricular da SME.
+            </p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Right Column: Results Grid & Sorting -->
+<main class="lg:col-span-9 flex flex-col gap-space-md">
+<!-- Sort and Results Count Header Bar -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm bg-surface-container-lowest p-space-sm rounded-xl shadow-sm">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-semibold text-on-surface">184 materiais encontrados</span>
+<span class="font-code-sm text-code-sm px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed rounded">Base BNCC Homologada</span>
+</div>
+<div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+<label class="font-label-sm text-label-sm text-on-surface-variant flex-shrink-0" for="sortOrder">Ordenar por:</label>
+<select class="bg-surface-container-low text-on-surface font-label-sm text-label-sm py-1.5 px-3 rounded-lg focus:outline-none focus:ring-1 focus:ring-secondary" id="sortOrder">
+<option selected="">Mais Recentes</option>
+<option>Mais Baixados</option>
+<option>Código BNCC (Crescente)</option>
+<option>Ordem Alfabética</option>
+</select>
+</div>
+</div>
+<!-- Resource Grid (6 Cards) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Card 1 -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+<div>
+<div class="flex items-center justify-between gap-2 mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">1º Ano</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-primary font-label-sm text-label-sm">Língua Portuguesa</span>
+</div>
+<span class="inline-flex items-center gap-1 font-code-sm text-code-sm px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-semibold">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                APPROVED
+              </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight mt-1 mb-2">Alfabetização Fonológica: Cartela de Rimas e Sons Iniciais</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-3">
+              Sequência didática focada no reconhecimento de aliterações e correspondência fonema-grafema com apoio de cantigas regionais do interior paulista.
+            </p>
+<div class="flex flex-wrap items-center gap-2 mb-4">
+<div class="flex items-center gap-1 px-2 py-0.5 bg-surface-container rounded text-on-surface font-code-sm text-code-sm">
+<svg class="w-3 h-3 text-secondary" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="m20.59 13.41-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" x2="7.01" y1="7" y2="7"></line></svg>
+<span class="font-semibold">BNCC:</span> EF01LP08
+              </div>
+<span class="font-body-sm text-body-sm text-outline">EMEB Nair de Siqueira</span>
+</div>
+</div>
+<div class="pt-space-xs border-t border-surface-container flex items-center justify-between gap-2 mt-2">
+<button class="flex-1 py-2 px-3 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-sm text-label-sm font-medium flex items-center justify-center gap-1.5 transition-colors shadow-sm" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+<span>Download PDF Seguro</span>
+</button>
+<button class="p-2 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded-lg transition-colors" title="Ver Detalhes do Plano" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+</button>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+<div>
+<div class="flex items-center justify-between gap-2 mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">2º Ano</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-primary font-label-sm text-label-sm">Matemática</span>
+</div>
+<span class="inline-flex items-center gap-1 font-code-sm text-code-sm px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-semibold">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                APPROVED
+              </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight mt-1 mb-2">Sistemas de Numeração e Jogos de Troca na Base 10</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-3">
+              Conjunto de materiais manipuláveis e cartelas de registro para agrupamento decimal, dezenas e contagem estruturada em duplas.
+            </p>
+<div class="flex flex-wrap items-center gap-2 mb-4">
+<div class="flex items-center gap-1 px-2 py-0.5 bg-surface-container rounded text-on-surface font-code-sm text-code-sm">
+<svg class="w-3 h-3 text-secondary" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="m20.59 13.41-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" x2="7.01" y1="7" y2="7"></line></svg>
+<span class="font-semibold">BNCC:</span> EF02MA01
+              </div>
+<span class="font-body-sm text-body-sm text-outline">EMEB Paulo Freire</span>
+</div>
+</div>
+<div class="pt-space-xs border-t border-surface-container flex items-center justify-between gap-2 mt-2">
+<button class="flex-1 py-2 px-3 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-sm text-label-sm font-medium flex items-center justify-center gap-1.5 transition-colors shadow-sm" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+<span>Download PDF Seguro</span>
+</button>
+<button class="p-2 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded-lg transition-colors" title="Ver Detalhes do Plano" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+</button>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+<div>
+<div class="flex items-center justify-between gap-2 mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">3º Ano</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-primary font-label-sm text-label-sm">Geografia</span>
+</div>
+<span class="inline-flex items-center gap-1 font-code-sm text-code-sm px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-semibold">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                APPROVED
+              </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight mt-1 mb-2">Paisagens Naturais e Urbanas: Mapeando os Bairros de Franco da Rocha</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-3">
+              Estudo cartográfico preliminar com maquetes e fotografias comparativas do Centro histórico e do entorno do Rio Juquery.
+            </p>
+<div class="flex flex-wrap items-center gap-2 mb-4">
+<div class="flex items-center gap-1 px-2 py-0.5 bg-surface-container rounded text-on-surface font-code-sm text-code-sm">
+<svg class="w-3 h-3 text-secondary" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="m20.59 13.41-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" x2="7.01" y1="7" y2="7"></line></svg>
+<span class="font-semibold">BNCC:</span> EF03GE01
+              </div>
+<span class="font-body-sm text-body-sm text-outline">EMEB Juvenal Gomes</span>
+</div>
+</div>
+<div class="pt-space-xs border-t border-surface-container flex items-center justify-between gap-2 mt-2">
+<button class="flex-1 py-2 px-3 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-sm text-label-sm font-medium flex items-center justify-center gap-1.5 transition-colors shadow-sm" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+<span>Download PDF Seguro</span>
+</button>
+<button class="p-2 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded-lg transition-colors" title="Ver Detalhes do Plano" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+</button>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+<div>
+<div class="flex items-center justify-between gap-2 mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">4º Ano</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-primary font-label-sm text-label-sm">Ciências da Natureza</span>
+</div>
+<span class="inline-flex items-center gap-1 font-code-sm text-code-sm px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-semibold">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                APPROVED
+              </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight mt-1 mb-2">Ciclos da Vida e Cadeias Alimentares no Parque Estadual do Juquery</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-3">
+              Roteiro de observação de campo e painéis ilustrados sobre espécies nativas do Cerrado paulista e relações ecológicas.
+            </p>
+<div class="flex flex-wrap items-center gap-2 mb-4">
+<div class="flex items-center gap-1 px-2 py-0.5 bg-surface-container rounded text-on-surface font-code-sm text-code-sm">
+<svg class="w-3 h-3 text-secondary" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="m20.59 13.41-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" x2="7.01" y1="7" y2="7"></line></svg>
+<span class="font-semibold">BNCC:</span> EF04CI04
+              </div>
+<span class="font-body-sm text-body-sm text-outline">EMEB Adamastor Baptista</span>
+</div>
+</div>
+<div class="pt-space-xs border-t border-surface-container flex items-center justify-between gap-2 mt-2">
+<button class="flex-1 py-2 px-3 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-sm text-label-sm font-medium flex items-center justify-center gap-1.5 transition-colors shadow-sm" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+<span>Download PDF Seguro</span>
+</button>
+<button class="p-2 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded-lg transition-colors" title="Ver Detalhes do Plano" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+</button>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+<div>
+<div class="flex items-center justify-between gap-2 mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">5º Ano</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-primary font-label-sm text-label-sm">Língua Portuguesa</span>
+</div>
+<span class="inline-flex items-center gap-1 font-code-sm text-code-sm px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-semibold">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                APPROVED
+              </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight mt-1 mb-2">Produção Textual Coletiva: Crônicas e Notícias da Cidade</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-3">
+              Oficina de redação jornalística e entrevistas com pioneiros do município para montagem de jornal mural escolar e digital.
+            </p>
+<div class="flex flex-wrap items-center gap-2 mb-4">
+<div class="flex items-center gap-1 px-2 py-0.5 bg-surface-container rounded text-on-surface font-code-sm text-code-sm">
+<svg class="w-3 h-3 text-secondary" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="m20.59 13.41-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" x2="7.01" y1="7" y2="7"></line></svg>
+<span class="font-semibold">BNCC:</span> EF05LP15
+              </div>
+<span class="font-body-sm text-body-sm text-outline">EMEB Cecília Meireles</span>
+</div>
+</div>
+<div class="pt-space-xs border-t border-surface-container flex items-center justify-between gap-2 mt-2">
+<button class="flex-1 py-2 px-3 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-sm text-label-sm font-medium flex items-center justify-center gap-1.5 transition-colors shadow-sm" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+<span>Download PDF Seguro</span>
+</button>
+<button class="p-2 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded-lg transition-colors" title="Ver Detalhes do Plano" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+</button>
+</div>
+</article>
+<!-- Card 6 -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+<div>
+<div class="flex items-center justify-between gap-2 mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">5º Ano</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-primary font-label-sm text-label-sm">Matemática</span>
+</div>
+<span class="inline-flex items-center gap-1 font-code-sm text-code-sm px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-semibold">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                APPROVED
+              </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight mt-1 mb-2">Resolução de Situações-Problema com Grandezas e Medidas</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-3">
+              Conjunto avaliativo com problemas contextualizados envolvendo perímetros, áreas planas e orçamentos do cotidiano comunitário.
+            </p>
+<div class="flex flex-wrap items-center gap-2 mb-4">
+<div class="flex items-center gap-1 px-2 py-0.5 bg-surface-container rounded text-on-surface font-code-sm text-code-sm">
+<svg class="w-3 h-3 text-secondary" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="m20.59 13.41-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" x2="7.01" y1="7" y2="7"></line></svg>
+<span class="font-semibold">BNCC:</span> EF05MA19
+              </div>
+<span class="font-body-sm text-body-sm text-outline">EMEB Roberto Meconi</span>
+</div>
+</div>
+<div class="pt-space-xs border-t border-surface-container flex items-center justify-between gap-2 mt-2">
+<button class="flex-1 py-2 px-3 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-sm text-label-sm font-medium flex items-center justify-center gap-1.5 transition-colors shadow-sm" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+<span>Download PDF Seguro</span>
+</button>
+<button class="p-2 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded-lg transition-colors" title="Ver Detalhes do Plano" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+</button>
+</div>
+</article>
+</div>
+<!-- Pagination & Cache Status (shadcn/ui inspired) -->
+<div class="mt-space-md pt-space-md border-t border-surface-container flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<!-- ISR Cache Indicator -->
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<svg class="w-4 h-4 text-outline" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"></path></svg>
+<span>Acervo sincronizado via ISR • Última revalidação há 12 minutos</span>
+</div>
+<!-- Clean Pagination Buttons -->
+<div class="flex items-center gap-1">
+<button class="p-2 rounded-md bg-surface-container-lowest text-outline opacity-40 cursor-not-allowed" disabled="" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+</button>
+<button class="w-8 h-8 rounded-md bg-primary text-on-primary font-label-sm text-label-sm font-semibold flex items-center justify-center shadow-sm" type="button">1</button>
+<button class="w-8 h-8 rounded-md bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center justify-center transition-colors" type="button">2</button>
+<button class="w-8 h-8 rounded-md bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center justify-center transition-colors" type="button">3</button>
+<span class="w-6 text-center text-outline font-label-sm text-label-sm">…</span>
+<button class="w-8 h-8 rounded-md bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center justify-center transition-colors" type="button">31</button>
+<button class="p-2 rounded-md bg-surface-container-lowest hover:bg-surface-container text-on-surface transition-colors shadow-sm" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</button>
+</div>
+</div>
+</main>
+</div>
+<script>
+    document.querySelectorAll('article button').forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    });
+  </script>
+</div></main></div></body></html>

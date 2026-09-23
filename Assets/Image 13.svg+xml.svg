@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 56" fill="none">
+  <rect width="44" height="44" x="6" y="6" rx="10" fill="#415166"/>
+  <path d="M16 28L28 18L40 28L28 38L16 28Z" fill="#5CA0FF"/>
+  <path d="M22 31L28 36L34 31V37L28 42L22 37V31Z" fill="#8CBCFF"/>
+  <circle cx="28" cy="24" r="3" fill="#FFFFFF"/>
+  <text x="60" y="32" font-family="Inter, sans-serif" font-weight="700" font-size="21" fill="#2B2E33" letter-spacing="-0.5px">EduCom</text>
+  <text x="60" y="44" font-family="Montserrat, sans-serif" font-weight="500" font-size="10" fill="#415166" letter-spacing="0.5px">REPOSITÓRIO PEDAGÓGICO</text>
+</svg>

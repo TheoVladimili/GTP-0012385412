@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-error": "#ffffff", "surface-container-high": "#e6e8ee", "on-secondary-fixed-variant": "#004689", "on-secondary-container": "#003569", "on-secondary": "#ffffff", "tertiary-fixed-dim": "#a4c9ff", "on-background": "#191c20", "surface": "#f8f9ff", "on-tertiary": "#ffffff", "error": "#ba1a1a", "on-tertiary-fixed-variant": "#014883", "primary-fixed-dim": "#b7c8e1", "on-primary": "#ffffff", "tertiary-fixed": "#d4e3ff", "inverse-surface": "#2e3136", "surface-tint": "#4f6075", "on-surface-variant": "#44474c", "secondary": "#005eb3", "on-secondary-fixed": "#001b3c", "surface-dim": "#d8dae0", "tertiary-container": "#15518d", "secondary-container": "#5b9ffe", "on-tertiary-fixed": "#001c39", "secondary-fixed-dim": "#a8c8ff", "surface-container-lowest": "#ffffff", "surface-bright": "#f8f9ff", "on-primary-fixed": "#0b1c2f", "primary-container": "#415166", "surface-container-low": "#f2f3fa", "surface-variant": "#e1e2e9", "background": "#f8f9ff", "on-tertiary-container": "#9cc5ff", "on-primary-container": "#b3c4dc", "tertiary": "#003a6c", "outline": "#74777d", "inverse-on-surface": "#eff0f7", "primary-fixed": "#d3e4fe", "on-surface": "#191c20", "outline-variant": "#c4c6cd", "error-container": "#ffdad6", "inverse-primary": "#b7c8e1", "primary": "#2a3a4e", "secondary-fixed": "#d5e3ff", "on-primary-fixed-variant": "#38485c", "surface-container-highest": "#e1e2e9", "on-error-container": "#93000a", "surface-container": "#eceef4" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "gutter-tablet": "1rem", "space-sm": "0.75rem", "max-container": "84rem", "space-md": "1rem", "space-2xs": "0.25rem", "space-xl": "2rem", "gutter-desktop": "1.5rem", "space-lg": "1.5rem", "space-xs": "0.5rem", "sidebar-collapsed": "4.5rem", "sidebar-width": "16rem", "space-2xl": "3rem", "gutter-mobile": "0.75rem" }, "fontFamily": { "body-md": [ "Montserrat" ], "label-md": [ "Montserrat" ], "headline-xl-mobile": [ "Inter" ], "headline-xl": [ "Inter" ], "headline-sm": [ "Inter" ], "body-lg": [ "Montserrat" ], "headline-lg": [ "Inter" ], "headline-lg-mobile": [ "Inter" ], "code-sm": [ "Inter" ], "headline-md": [ "Inter" ], "body-sm": [ "Montserrat" ], "label-sm": [ "Montserrat" ] }, "fontSize": { "body-md": [ "0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" } ], "label-md": [ "0.875rem", { "lineHeight": "1.25rem", "fontWeight": "500" } ], "headline-xl-mobile": [ "1.625rem", { "lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-xl": [ "2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.025em", "fontWeight": "700" } ], "headline-sm": [ "1rem", { "lineHeight": "1.375rem", "letterSpacing": "-0.005em", "fontWeight": "600" } ], "body-lg": [ "1rem", { "lineHeight": "1.5rem", "fontWeight": "400" } ], "headline-lg": [ "1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "headline-lg-mobile": [ "1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "code-sm": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.05em", "fontWeight": "500" } ], "headline-md": [ "1.125rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-sm": [ "0.75rem", { "lineHeight": "1.125rem", "fontWeight": "400" } ], "label-sm": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md"><aside class="fixed left-0 top-0 h-full w-sidebar-width bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between pt-space-md pb-space-lg"><div class="flex flex-col"><div class="px-space-md pb-space-md flex items-center justify-between"><div class="flex items-center gap-space-xs"><div class="w-2 h-2 rounded-full bg-secondary"></div><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Rede Municipal</span></div><span class="font-code-sm text-code-sm text-outline px-space-2xs py-0.5 bg-surface-container rounded">v2.4</span></div><div class="px-space-md mb-space-md"><div class="bg-surface-container p-space-xs rounded-xl flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[20px]">school</span><div class="flex flex-col min-w-0 flex-1"><span class="font-label-sm text-label-sm text-on-surface truncate">EMEB Paulo Freire</span><span class="font-body-sm text-body-sm text-on-surface-variant truncate">Franco da Rocha - SP</span></div><button class="text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">unfold_more</span></button></div></div><nav class="px-space-xs flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary font-semibold rounded-xl"><div class="px-space-xs py-1 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">Pedagógico</div><a class="flex items-center justify-between px-space-xs py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="repositorio-acervo-publico" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[20px]">library_books</span><span class="font-label-md text-label-md">Acervo Público</span></div></a><a class="flex items-center justify-between px-space-xs py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="meus-materiais-e-envio" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[20px]">upload_file</span><span class="font-label-md text-label-md">Meus Materiais</span></div></a><a class="flex items-center justify-between px-space-xs py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="fila-de-moderacao-pedagogica" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[20px]">rule</span><span class="font-label-md text-label-md">Moderação</span></div><span class="px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">14</span></a><div class="px-space-xs pt-space-sm pb-1 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">Gestão &amp; Rede</div><a aria-current="page" class="flex items-center justify-between px-space-xs py-2 transition-colors bg-primary-container text-on-primary font-semibold rounded-xl" data-path="relatorios-e-exportacao" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[20px]">table_chart</span><span class="font-label-md text-label-md">Relatórios &amp; XLSX</span></div></a><a class="flex items-center justify-between px-space-xs py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="auditoria-e-logs" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[20px]">history</span><span class="font-label-md text-label-md">Auditoria &amp; Logs</span></div></a></nav></div><div class="px-space-md flex flex-col gap-space-xs"><div class="p-space-xs rounded-xl bg-surface-container flex items-center justify-between"><div class="flex items-center gap-space-2xs"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Sincronizado BNCC</span></div><span class="material-symbols-outlined text-outline text-[16px]">cloud_done</span></div><div class="pt-space-xs flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm"><span>Secretaria da Educação</span><a class="hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined text-[16px]">help</span></a></div></div></aside><div class="pl-sidebar-width"><header class="fixed top-0 left-sidebar-width right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-desktop"><div class="flex items-center gap-space-md"><img alt="EduCom Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XdQOxsFhFqC2-SXamq7Bd8xWjjOOKvZ8GV1uynOkHfj6RKGEGSFoNU_AgdROStUpEzLGJszUFkJELBomYW7XGYx5blAoAN_59YlGZa13QuC8y5roNoCPE1XphG61M9lcp3hH8pQ354WpVHviDQcwV4m-tGZE3wOBBAZtBo6psebXFP9pqvTGx6V4MGmas6FGvH7WJVcdncX22AYv_cAKyuTNgrwi1r3ciJsnSP509ruRhSvrziaBsBdg"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">EduCom</span><span class="font-body-sm text-body-sm text-on-surface-variant">Repositório Pedagógico Municipal</span></div><div class="hidden xl:flex items-center gap-space-xs pl-space-lg text-on-surface-variant font-label-sm text-label-sm"><span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface">1º ao 5º Ano</span><span>Ensino Fundamental I</span></div></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-xs px-space-xs py-1 rounded-xl bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px] text-secondary">verified</span><span>Franco da Rocha Conectada</span></div><button class="relative p-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Notificações de Revisão" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary"></span></button><div class="flex items-center gap-space-xs pl-space-xs"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-md text-label-md text-on-surface font-semibold">Prof. Marcelo Ramos</span><span class="font-body-sm text-body-sm text-on-surface-variant">Validador · EMEB Paulo Freire</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 px-gutter-desktop bg-surface"><div class="flex flex-col w-full pb-space-2xl">
+<!-- Top Administration Header Context -->
+<section class="flex flex-col gap-space-xs mb-space-lg pt-space-xs">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="font-code-sm text-code-sm uppercase tracking-widest text-secondary font-semibold">Módulo Governança SME</span>
+<span class="text-outline text-[12px]">•</span>
+<span class="font-code-sm text-code-sm text-outline">SEC-FR-LGPD-2024</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary tracking-tight">Painel Gerencial e Governança Pedagógica</h1>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-xl bg-surface-container-high text-on-surface font-code-sm text-code-sm">
+<svg class="w-3.5 h-3.5 text-secondary" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+</svg>
+          LGPD Compliance: Nível Auditoria Ativa
+        </span>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-sm text-label-sm transition-colors shadow-sm" id="refreshAuditBtn" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+<path d="M21 3v5h-5"></path>
+<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+<path d="M8 16H3v5"></path>
+</svg>
+          Sincronizar
+        </button>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+      Emissão de relatórios em formato .xlsx (exceljs) e trilha de auditoria transparente (AuditLog) em conformidade com a LGPD e parâmetros da Secretaria de Educação.
+    </p>
+</section>
+<!-- Metric KPI Cards & Bar Visualizer Bento -->
+<section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-space-md mb-space-lg">
+<!-- Stat 1: Total Materials -->
+<div class="lg:col-span-3 bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Acervo Geral</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+<path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
+<path d="M3 12A9 3 0 0 0 21 12"></path>
+</svg>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-xl text-headline-xl font-bold text-primary">342</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+18 este mês</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Materiais Pedagógicos Registrados</span>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm bg-surface-container-low px-2 py-1 rounded">
+<span>1º ao 5º Ano EF I</span>
+<span>100% Curados</span>
+</div>
+</div>
+<!-- Stat 2: Approval Rate -->
+<div class="lg:col-span-3 bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Qualidade de Submissão</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+<circle cx="9" cy="7" r="4"></circle>
+<polyline points="16 11 18 13 22 9"></polyline>
+</svg>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-xl text-headline-xl font-bold text-primary">88.4%</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Meta: &gt;85%</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Homologação Direta em 1ª Revisão</span>
+</div>
+<div class="mt-space-sm w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary h-1.5 rounded-full" style="width: 88.4%;"></div>
+</div>
+</div>
+<!-- Stat 3 & Chart: Grade Breakdown Bar Chart -->
+<div class="lg:col-span-6 bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<line x1="18" x2="18" y1="20" y2="10"></line>
+<line x1="12" x2="12" y1="20" y2="4"></line>
+<line x1="6" x2="6" y1="20" y2="14"></line>
+</svg>
+<span class="font-label-md text-label-md font-semibold text-primary">Adesão &amp; Volume por Ano Escolar</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">342 Planos • BNCC Alinhados</span>
+</div>
+<!-- Compact CSS Bar Graphic -->
+<div class="grid grid-cols-5 gap-space-xs items-end h-20 pt-space-xs">
+<div class="flex flex-col items-center gap-1 group">
+<span class="font-code-sm text-code-sm text-on-surface-variant font-medium group-hover:text-primary transition-colors">54</span>
+<div class="w-full bg-surface-container-high rounded-t group-hover:bg-secondary transition-all" style="height: 48%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">1º Ano</span>
+</div>
+<div class="flex flex-col items-center gap-1 group">
+<span class="font-code-sm text-code-sm text-on-surface-variant font-medium group-hover:text-primary transition-colors">68</span>
+<div class="w-full bg-surface-container-high rounded-t group-hover:bg-secondary transition-all" style="height: 60%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">2º Ano</span>
+</div>
+<div class="flex flex-col items-center gap-1 group">
+<span class="font-code-sm text-code-sm text-on-surface-variant font-medium group-hover:text-primary transition-colors">92</span>
+<div class="w-full bg-primary-container rounded-t group-hover:bg-secondary transition-all" style="height: 82%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">3º Ano</span>
+</div>
+<div class="flex flex-col items-center gap-1 group">
+<span class="font-code-sm text-code-sm text-on-surface-variant font-medium group-hover:text-primary transition-colors">76</span>
+<div class="w-full bg-surface-container-high rounded-t group-hover:bg-secondary transition-all" style="height: 68%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">4º Ano</span>
+</div>
+<div class="flex flex-col items-center gap-1 group">
+<span class="font-code-sm text-code-sm text-on-surface-variant font-medium group-hover:text-primary transition-colors">52</span>
+<div class="w-full bg-surface-container-high rounded-t group-hover:bg-secondary transition-all" style="height: 46%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">5º Ano</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Export Engine Panel -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg mb-space-xl shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-md mb-space-lg">
+<div class="flex items-start gap-space-sm max-w-2xl">
+<div class="p-2.5 rounded-xl bg-surface-container text-primary shrink-0">
+<svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+<path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+<path d="M8 13h2"></path>
+<path d="M14 13h2"></path>
+<path d="M8 17h2"></path>
+<path d="M14 17h2"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<h2 class="font-headline-md text-headline-md text-primary">Exportador de Dados (.xlsx via exceljs)</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Geração de planilhas estruturadas com cabeçalhos tipados, tratamento criptográfico para proteção de dados sensíveis e vinculação direta aos eixos da BNCC.
+          </p>
+</div>
+</div>
+<!-- Direct API Export Action -->
+<div class="flex flex-col items-end gap-1">
+<button class="flex items-center gap-2 h-11 px-6 rounded-xl bg-primary text-on-primary hover:bg-inverse-surface active:scale-[0.99] font-label-md text-label-md font-semibold transition-all shadow-md" id="btnExportXLSX" type="button">
+<svg class="w-4 h-4" fill="none" id="exportIcon" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="7 10 12 15 17 10"></polyline>
+<line x1="12" x2="12" y1="15" y2="3"></line>
+</svg>
+<span>Gerar e Baixar Planilha XLSX</span>
+</button>
+<span class="font-code-sm text-code-sm text-outline">Endpoint: /api/admin/reports/export</span>
+</div>
+</div>
+<!-- Export Controls Form -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md p-space-md rounded-xl bg-surface-container-low mb-space-md">
+<!-- Period Selector -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm font-semibold text-primary flex items-center gap-1" for="periodSelect">
+<svg class="w-3.5 h-3.5 text-on-surface-variant" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect>
+<line x1="16" x2="16" y1="2" y2="6"></line>
+<line x1="8" x2="8" y1="2" y2="6"></line>
+<line x1="3" x2="10" y1="10" y2="10"></line>
+</svg>
+          Período do Relatório
+        </label>
+<select class="h-10 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-secondary" id="periodSelect">
+<option value="last30">Últimos 30 dias (Operacional)</option>
+<option selected="" value="currentSemester">Semestre Atual (2024.2)</option>
+<option value="annual2024">Ano Letivo Completo (2024)</option>
+<option value="annual2025">Ano Letivo Planejamento (2025)</option>
+</select>
+</div>
+<!-- School Unit Selector -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm font-semibold text-primary flex items-center gap-1" for="schoolSelect">
+<svg class="w-3.5 h-3.5 text-on-surface-variant" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+</svg>
+          Unidade Escolar Municipal
+        </label>
+<select class="h-10 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-secondary" id="schoolSelect">
+<option value="ALL">Todas as Escolas da Rede (Consolidado)</option>
+<option selected="" value="EMEB-PF">EMEB Paulo Freire</option>
+<option value="EMEB-CS">EMEB Cecília Meireles</option>
+<option value="EMEB-AL">EMEB Anísio Teixeira</option>
+<option value="EMEB-MA">EMEB Monteiro Lobato</option>
+</select>
+</div>
+<!-- Scope Status -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm font-semibold text-primary flex items-center gap-1" for="statusScopeSelect">
+<svg class="w-3.5 h-3.5 text-on-surface-variant" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<polyline points="12 6 12 12 14 14"></polyline>
+</svg>
+          Escopo de Status Homologatório
+        </label>
+<select class="h-10 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-secondary" id="statusScopeSelect">
+<option value="ALL">Todos os Registros (Trilha Completa)</option>
+<option selected="" value="APPROVED">Apenas Homologados (Acervo Público)</option>
+<option value="IN_REVIEW">Em Revisão / Moderação Pedagógica</option>
+<option value="REVISION_REQUESTED">Necessita Adequação BNCC</option>
+</select>
+</div>
+</div>
+<!-- Included Columns Schema Visualizer -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface-variant">
+          Colunas Mapeadas no Template ExcelJS (Total: 10 Campos Canônicos)
+        </span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Conformidade LGPD Art. 6º III</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-code-sm text-code-sm">Título do Material</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-code-sm text-code-sm" title="E-mail anonimizado se público">Autor (Anonimizado)</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-code-sm text-code-sm">Escola</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-code-sm text-code-sm">Disciplina</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-code-sm text-code-sm">Ano Escolar</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-code-sm text-code-sm">Código BNCC</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-code-sm text-code-sm">Status</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-code-sm text-code-sm">Data Submissão</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-code-sm text-code-sm">Data Aprovação</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-code-sm text-code-sm">Validador Responsável</span>
+</div>
+</div>
+<!-- Live Toast Message Area for Export -->
+<div class="hidden mt-space-md p-space-sm rounded-xl bg-surface-container text-on-surface flex items-center justify-between" id="exportToast">
+<div class="flex items-center gap-space-xs">
+<svg class="w-4 h-4 text-secondary animate-spin" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
+<path d="M12 2a10 10 0 0 1 10 10"></path>
+</svg>
+<span class="font-body-sm text-body-sm font-medium" id="exportToastMsg">Compilando células e metadados com exceljs...</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline">HTTP 200 OK</span>
+</div>
+</section>
+<!-- Audit Trail Header & Filters Bar -->
+<section class="flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<polyline points="12 6 12 12 14 14"></polyline>
+</svg>
+<h2 class="font-headline-lg text-headline-lg text-primary">Trilha de Auditoria (AuditLog)</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Registro imutável em tempo real de ações administrativas, curadoria pedagógica e invalidação de cache ISR.
+        </p>
+</div>
+<!-- Quick Filter Inputs -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<div class="relative">
+<input class="h-9 pl-8 pr-3 text-xs rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-secondary w-36 md:w-44" id="filterActionInput" placeholder="Filtrar Ação..." type="text"/>
+<svg class="w-3.5 h-3.5 text-outline absolute left-2.5 top-2.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+</svg>
+</div>
+<div class="relative">
+<input class="h-9 pl-8 pr-3 text-xs rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-secondary w-36 md:w-44" id="filterUserInput" placeholder="Filtrar Usuário..." type="text"/>
+<svg class="w-3.5 h-3.5 text-outline absolute left-2.5 top-2.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<circle cx="11" cy="11" r="8"></circle>
+<line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+</svg>
+</div>
+<button class="h-9 px-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant text-xs font-label-sm transition-colors" id="resetFiltersBtn" type="button">
+          Limpar
+        </button>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left" id="auditTable">
+<thead>
+<tr class="bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<th class="py-3 px-4 font-semibold" scope="col">Evento / Criticidade</th>
+<th class="py-3 px-4 font-semibold" scope="col">Alvo / Descrição da Operação</th>
+<th class="py-3 px-4 font-semibold" scope="col">Agente / E-mail</th>
+<th class="py-3 px-4 font-semibold" scope="col">Timestamp</th>
+<th class="py-3 px-4 font-semibold text-right" scope="col">Integridade</th>
+</tr>
+</thead>
+<tbody class="divide-y-0" id="auditTbody">
+<!-- Row 1: MATERIAL_APPROVED -->
+<tr class="audit-row bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-code-sm text-code-sm font-semibold">
+<svg class="w-3 h-3 text-secondary" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M20 6 9 17l-5-5"></path>
+</svg>
+                    MATERIAL_APPROVED
+                  </span>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary">Sequência Didática #1042</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Alvo BNCC: <span class="font-code-sm text-code-sm bg-surface-container px-1 py-0.5 rounded text-primary">EF01LP01</span> • 1º Ano • Língua Portuguesa</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-on-surface-variant" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<circle cx="12" cy="7" r="4"></circle>
+<path d="M5 21v-2a7 7 0 0 1 14 0v2"></path>
+</svg>
+<span class="font-code-sm text-code-sm text-on-surface">coord.patricia@francodarocha.sp.gov.br</span>
+</div>
+</td>
+<td class="py-3 px-4 font-code-sm text-code-sm text-on-surface-variant whitespace-nowrap">
+                14/10/2024 10:42:15
+              </td>
+<td class="py-3 px-4 text-right">
+<span class="inline-flex items-center gap-1 text-secondary font-code-sm text-code-sm font-semibold">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+</svg>
+                  SHA-256
+                </span>
+</td>
+</tr>
+<!-- Row 2: USER_ROLE_UPDATED -->
+<tr class="audit-row bg-surface-container-low/40 hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-primary font-code-sm text-code-sm font-semibold">
+<svg class="w-3 h-3 text-primary" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+<circle cx="9" cy="7" r="4"></circle>
+<line x1="19" x2="19" y1="8" y2="14"></line>
+<line x1="22" x2="16" y1="11" y2="11"></line>
+</svg>
+                    USER_ROLE_UPDATED
+                  </span>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-primary font-medium">Privilégios de Acesso Elevados</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">prof.lucas@francodarocha.sp.gov.br alterado de <span class="font-code-sm text-code-sm text-primary">TEACHER</span> para <span class="font-code-sm text-code-sm text-secondary font-bold">VALIDATOR</span></span>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-on-surface-variant" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+</svg>
+<span class="font-code-sm text-code-sm text-on-surface">admin.sme@francodarocha.sp.gov.br</span>
+</div>
+</td>
+<td class="py-3 px-4 font-code-sm text-code-sm text-on-surface-variant whitespace-nowrap">
+                14/10/2024 09:15:32
+              </td>
+<td class="py-3 px-4 text-right">
+<span class="inline-flex items-center gap-1 text-secondary font-code-sm text-code-sm font-semibold">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+</svg>
+                  SHA-256
+                </span>
+</td>
+</tr>
+<!-- Row 3: MATERIAL_NEEDS_REVISION -->
+<tr class="audit-row bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-code-sm text-code-sm font-semibold">
+<svg class="w-3 h-3 text-error" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+<line x1="12" x2="12" y1="9" y2="13"></line>
+<line x1="12" x2="12.01" y1="17" y2="17"></line>
+</svg>
+                    MATERIAL_NEEDS_REVISION
+                  </span>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary">Atividade Ciclo da Água #1039</span>
+<span class="font-body-sm text-body-sm text-error">Motivo: "Habilidade BNCC diverge do conteúdo prático (3º ano EF03CI01)"</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-on-surface-variant" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<circle cx="12" cy="7" r="4"></circle>
+<path d="M5 21v-2a7 7 0 0 1 14 0v2"></path>
+</svg>
+<span class="font-code-sm text-code-sm text-on-surface">coord.renato@francodarocha.sp.gov.br</span>
+</div>
+</td>
+<td class="py-3 px-4 font-code-sm text-code-sm text-on-surface-variant whitespace-nowrap">
+                13/10/2024 16:20:04
+              </td>
+<td class="py-3 px-4 text-right">
+<span class="inline-flex items-center gap-1 text-secondary font-code-sm text-code-sm font-semibold">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+</svg>
+                  SHA-256
+                </span>
+</td>
+</tr>
+<!-- Row 4: ISR_CACHE_REVALIDATED -->
+<tr class="audit-row bg-surface-container-low/40 hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-code-sm text-code-sm font-semibold">
+<svg class="w-3 h-3 text-secondary" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+<path d="M21 3v5h-5"></path>
+<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+<path d="M8 16H3v5"></path>
+</svg>
+                    ISR_CACHE_REVALIDATED
+                  </span>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-primary font-medium">Invalidação de Cache de Borda Edge</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Rota: <span class="font-code-sm text-code-sm text-primary">/materiais</span> tag: <span class="font-code-sm text-code-sm bg-surface-container px-1 py-0.5 rounded">public-materials</span> revalidada com sucesso.</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-on-surface-variant" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<rect height="18" rx="2" ry="2" width="18" x="3" y="3"></rect>
+<line x1="9" x2="15" y1="9" y2="15"></line>
+<line x1="15" x2="9" y1="9" y2="15"></line>
+</svg>
+<span class="font-code-sm text-code-sm text-on-surface">system.hook@educom.internal</span>
+</div>
+</td>
+<td class="py-3 px-4 font-code-sm text-code-sm text-on-surface-variant whitespace-nowrap">
+                13/10/2024 14:02:40
+              </td>
+<td class="py-3 px-4 text-right">
+<span class="inline-flex items-center gap-1 text-secondary font-code-sm text-code-sm font-semibold">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+</svg>
+                  SHA-256
+                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Pagination -->
+<div class="flex items-center justify-between px-space-md py-3 bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
+<span class="font-code-sm text-code-sm">Mostrando 4 de 2.481 registros de auditoria auditados</span>
+<div class="flex items-center gap-space-xs">
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface-variant opacity-50 cursor-not-allowed text-xs" type="button">Anterior</button>
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-code-sm text-code-sm font-semibold">1</span>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface text-xs transition-colors" type="button">Próximo</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  (function() {
+    const btnExport = document.getElementById('btnExportXLSX');
+    const exportToast = document.getElementById('exportToast');
+    const exportToastMsg = document.getElementById('exportToastMsg');
+    const periodSelect = document.getElementById('periodSelect');
+    const schoolSelect = document.getElementById('schoolSelect');
+    const statusSelect = document.getElementById('statusScopeSelect');
+
+    const filterActionInput = document.getElementById('filterActionInput');
+    const filterUserInput = document.getElementById('filterUserInput');
+    const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+    const auditRows = document.querySelectorAll('.audit-row');
+    const refreshAuditBtn = document.getElementById('refreshAuditBtn');
+
+    // Handle XLSX Mock Generator
+    if (btnExport) {
+      btnExport.addEventListener('click', function() {
+        btnExport.disabled = true;
+        btnExport.classList.add('opacity-75');
+        exportToast.classList.remove('hidden');
+        exportToastMsg.textContent = 'Invocando endpoint /api/admin/reports/export com parâmetros selecionados...';
+
+        setTimeout(function() {
+          exportToastMsg.textContent = 'Processando 342 registros via exceljs. Estruturando colunas e cabeçalhos tipados...';
+        }, 1200);
+
+        setTimeout(function() {
+          exportToastMsg.textContent = 'Planilha gerada com sucesso: educom_relatorio_gestao_2024.xlsx (Download iniciado)';
+          btnExport.disabled = false;
+          btnExport.classList.remove('opacity-75');
+
+          // Trigger simulated download
+          const blob = new Blob([
+            "EduCom Municipal - Relatorio Consolidado\nPeriodo: " + periodSelect.value + "\nEscola: " + schoolSelect.value + "\nStatus: " + statusSelect.value + "\nGerado em: " + new Date().toISOString()
+          ], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.style.display = 'none';
+          a.href = url;
+          a.download = 'educom_gestao_' + periodSelect.value + '.xlsx';
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+          document.body.removeChild(a);
+
+          setTimeout(function() {
+            exportToast.classList.add('hidden');
+          }, 4500);
+        }, 2600);
+      });
+    }
+
+    // Client-side quick filter for audit trail
+    function filterAudit() {
+      const actionQuery = filterActionInput.value.toLowerCase().trim();
+      const userQuery = filterUserInput.value.toLowerCase().trim();
+
+      auditRows.forEach(function(row) {
+        const text = row.textContent.toLowerCase();
+        const matchesAction = !actionQuery || text.includes(actionQuery);
+        const matchesUser = !userQuery || text.includes(userQuery);
+
+        if (matchesAction && matchesUser) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    if (filterActionInput) filterActionInput.addEventListener('input', filterAudit);
+    if (filterUserInput) filterUserInput.addEventListener('input', filterAudit);
+
+    if (resetFiltersBtn) {
+      resetFiltersBtn.addEventListener('click', function() {
+        filterActionInput.value = '';
+        filterUserInput.value = '';
+        auditRows.forEach(function(row) {
+          row.style.display = '';
+        });
+      });
+    }
+
+    if (refreshAuditBtn) {
+      refreshAuditBtn.addEventListener('click', function() {
+        refreshAuditBtn.classList.add('animate-pulse');
+        setTimeout(function() {
+          refreshAuditBtn.classList.remove('animate-pulse');
+        }, 800);
+      });
+    }
+  })();
+</script></main></div></body></html>
