@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { reviewMaterial } from '@/services/reviews';
+import { useState, useEffect } from 'react';
+import { reviewMaterial, getPendingReviews } from '@/services/reviews';
 import {
   Rule,
   FileText,
@@ -28,43 +28,33 @@ interface PendingItem {
   bnccCode: string;
   fileUrl: string;
   fileSize: number;
-  createdAt: Date | string;
-  subject: { name: string };
-  author: { name: string; email: string };
+  createdAt: string;
+  subject?: { name: string };
+  author?: { name: string; email: string };
 }
 
 export default function ModerationPage() {
-  const [pendingItems, setPendingItems] = useState<PendingItem[]>([
-    {
-      id: 'mod-1',
-      title: 'Plano de Aula: Operações Fundamentais com Resolução de Problemas',
-      description: 'Atividade prática para fixação da adição e subtração com reserva no cotidiano do estudante.',
-      gradeYear: 'YEAR_4',
-      bnccCode: 'EF04MA03',
-      fileUrl: '#',
-      fileSize: 1850000,
-      createdAt: new Date(),
-      subject: { name: 'Matemática' },
-      author: { name: 'Profa. Mariana Costa', email: 'mariana.costa@educa.francodarocha.sp.gov.br' },
-    },
-    {
-      id: 'mod-2',
-      title: 'Sequência Didática: Ecossistemas da Serra do Japi e Bacia do Juquery',
-      description: 'Estudo de meio local focado no bioma da Mata Atlântica e preservação de mananciais em Franco da Rocha.',
-      gradeYear: 'YEAR_5',
-      bnccCode: 'EF05CI02',
-      fileUrl: '#',
-      fileSize: 3200000,
-      createdAt: new Date(),
-      subject: { name: 'Ciências' },
-      author: { name: 'Prof. Carlos Eduardo', email: 'carlos.eduardo@educa.francodarocha.sp.gov.br' },
-    },
-  ]);
-
+  const [pendingItems, setPendingItems] = useState<PendingItem[]>([]);
+  const [loading, setLoading] = useState(true);
   const [selectedItem, setSelectedItem] = useState<PendingItem | null>(null);
   const [feedback, setFeedback] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [msg, setMsg] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
+
+  useEffect(() => {
+    async function fetchPending() {
+      try {
+        setLoading(true);
+        const data = await getPendingReviews();
+        setPendingItems(data as PendingItem[]);
+      } catch (err) {
+        console.error('Erro ao carregar fila do Supabase:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchPending();
+  }, []);
 
   const handleDecision = async (status: 'APPROVED' | 'NEEDS_REVISION' | 'REJECTED') => {
     if (!selectedItem) return;
@@ -78,26 +68,23 @@ export default function ModerationPage() {
       setIsSubmitting(true);
       setMsg(null);
 
-      const mockValidatorId = 'validator-default-id';
+      // Usar validador cadastrado no Supabase
+      const validatorId = '3fdd3862-b70d-4d45-81e7-9a8c27ad3655';
 
       await reviewMaterial({
         materialId: selectedItem.id,
-        validatorId: mockValidatorId,
+        validatorId,
         status,
         feedback: feedback.trim() || undefined,
       });
 
-      // Remover item da fila local
       setPendingItems((prev) => prev.filter((item) => item.id !== selectedItem.id));
       setSelectedItem(null);
       setFeedback('');
-      setMsg({ text: `Material avaliado como ${status} com sucesso. Cache ISR atualizado!`, type: 'success' });
-    } catch {
-      // Mock Fallback se sem banco ativo
-      setPendingItems((prev) => prev.filter((item) => item.id !== selectedItem.id));
-      setSelectedItem(null);
-      setFeedback('');
-      setMsg({ text: `Material avaliado como ${status} com sucesso (Modo Mock).`, type: 'success' });
+      setMsg({ text: `Material alterado para "${status}" no Supabase com sucesso!`, type: 'success' });
+    } catch (err: unknown) {
+      const errorText = err instanceof Error ? err.message : 'Erro ao gravar parecer no Supabase';
+      setMsg({ text: errorText, type: 'error' });
     } finally {
       setIsSubmitting(false);
     }
@@ -114,10 +101,10 @@ export default function ModerationPage() {
           <div>
             <div className="flex items-center gap-2 mb-0.5">
               <span className="px-2 py-0.5 rounded text-[0.7rem] font-semibold bg-[#8cbcff]/20 text-[#005eb3] uppercase">
-                Moderação Pedagógica
+                Moderação Pedagógica Real
               </span>
               <span className="text-xs text-[#44474c] font-medium">
-                Pendente: {pendingItems.length} materiais
+                Pendente: {pendingItems.length} materiais no Supabase
               </span>
             </div>
             <h1 className="font-heading font-bold text-2xl text-[#191c20] tracking-tight">
@@ -150,18 +137,23 @@ export default function ModerationPage() {
         <div className="lg:col-span-7 bg-white rounded-2xl border border-[#e1e2e9] shadow-sm overflow-hidden flex flex-col">
           <div className="p-4 border-b border-[#e1e2e9] bg-[#f8f9ff] flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wider text-[#44474c]">
-              Fila Pendente de Avaliação
+              Fila Pendente de Avaliação no Supabase
             </span>
           </div>
 
-          {pendingItems.length === 0 ? (
+          {loading ? (
+            <div className="p-12 text-center flex flex-col items-center justify-center gap-2">
+              <RefreshCw className="w-8 h-8 text-[#005eb3] animate-spin" />
+              <p className="text-xs text-[#44474c]">Carregando fila do banco de dados...</p>
+            </div>
+          ) : pendingItems.length === 0 ? (
             <div className="p-12 text-center flex flex-col items-center justify-center gap-2">
               <CheckCircle className="w-10 h-10 text-emerald-600" />
               <p className="text-sm font-semibold text-[#191c20]">
                 Fila de moderação limpa!
               </p>
               <p className="text-xs text-[#44474c]">
-                Todos os materiais submetidos foram devidamente analisados.
+                Todos os materiais submetidos foram devidamente analisados no Supabase.
               </p>
             </div>
           ) : (
@@ -177,7 +169,7 @@ export default function ModerationPage() {
                   }`}
                 >
                   <div className="flex items-center gap-2 flex-wrap text-xs">
-                    <span className="font-semibold text-[#005eb3]">{item.subject.name}</span>
+                    <span className="font-semibold text-[#005eb3]">{item.subject?.name || 'Geral'}</span>
                     <span className="text-[#74777d]">·</span>
                     <span className="font-medium text-[#44474c]">
                       {GRADE_LABELS[item.gradeYear] || item.gradeYear}
@@ -193,7 +185,7 @@ export default function ModerationPage() {
                   </h3>
 
                   <div className="flex items-center justify-between text-xs text-[#44474c] pt-1">
-                    <span>Autor: {item.author.name}</span>
+                    <span>Autor: {item.author?.name || 'Docente'}</span>
                     <span className="text-[#005eb3] font-semibold flex items-center gap-1">
                       <Eye className="w-3.5 h-3.5" /> Analisar
                     </span>
@@ -219,7 +211,7 @@ export default function ModerationPage() {
             <div className="flex flex-col gap-4">
               <div className="p-4 rounded-xl bg-[#f8f9ff] border border-[#e1e2e9] flex flex-col gap-2">
                 <span className="text-[0.7rem] font-semibold uppercase text-[#005eb3]">
-                  {selectedItem.subject.name} · {GRADE_LABELS[selectedItem.gradeYear]}
+                  {selectedItem.subject?.name} · {GRADE_LABELS[selectedItem.gradeYear] || selectedItem.gradeYear}
                 </span>
                 <h3 className="font-heading font-semibold text-sm text-[#191c20]">
                   {selectedItem.title}
@@ -227,7 +219,7 @@ export default function ModerationPage() {
                 <p className="text-xs text-[#44474c]">{selectedItem.description}</p>
                 <div className="text-[0.75rem] text-[#74777d] pt-1 flex items-center justify-between border-t border-[#e1e2e9] mt-1">
                   <span>BNCC: {selectedItem.bnccCode}</span>
-                  <span>Por: {selectedItem.author.name}</span>
+                  <span>Por: {selectedItem.author?.name || 'Docente'}</span>
                 </div>
               </div>
 
@@ -258,7 +250,7 @@ export default function ModerationPage() {
                   ) : (
                     <CheckCircle className="w-4 h-4" />
                   )}
-                  <span>Aprovar e Publicar no Acervo (ISR)</span>
+                  <span>Aprovar e Publicar no Supabase Real</span>
                 </button>
 
                 <div className="grid grid-cols-2 gap-2">

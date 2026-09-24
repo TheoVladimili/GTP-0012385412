@@ -1,34 +1,18 @@
 import { NextResponse } from 'next/server';
 import ExcelJS from 'exceljs';
-import { prisma } from '@/lib/prisma';
+import { supabase } from '@/lib/supabase/client';
 
 export const dynamic = 'force-static';
 
 export async function GET() {
   try {
-    let materials = [];
-    try {
-      materials = await prisma.material.findMany({
-        include: {
-          subject: true,
-          author: true,
-        },
-        orderBy: { createdAt: 'desc' },
-      });
-    } catch {
-      // Mock Fallback para exportação de dados em ambiente dev
-      materials = [
-        {
-          title: 'Sequência Didática: Leitura e Interpretação de Fábulas',
-          author: { name: 'Profa. Ana Silva', email: 'ana.silva@educa.francodarocha.sp.gov.br' },
-          subject: { name: 'Língua Portuguesa' },
-          gradeYear: 'YEAR_3',
-          bnccCode: 'EF03LP01',
-          status: 'APPROVED',
-          createdAt: new Date('2025-09-10'),
-          updatedAt: new Date('2025-09-12'),
-        },
-      ];
+    const { data: materials, error } = await supabase
+      .from('materials')
+      .select('*, subject:subjects(*), author:users(*)')
+      .order('createdAt', { ascending: false });
+
+    if (error) {
+      throw error;
     }
 
     const workbook = new ExcelJS.Workbook();
@@ -46,7 +30,7 @@ export async function GET() {
       { header: 'Última Atualização', key: 'updatedAt', width: 20 },
     ];
 
-    materials.forEach((m) => {
+    (materials || []).forEach((m) => {
       worksheet.addRow({
         title: m.title,
         authorName: m.author?.name || 'Não informado',
@@ -69,7 +53,8 @@ export async function GET() {
         'Content-Disposition': `attachment; filename=relatorio-educom-${Date.now()}.xlsx`,
       },
     });
-  } catch {
+  } catch (err) {
+    console.error('Erro na exportação XLSX:', err);
     return NextResponse.json({ error: 'Erro ao gerar relatório' }, { status: 500 });
   }
 }

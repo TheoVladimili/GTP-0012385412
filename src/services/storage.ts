@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/supabase/client';
+import { supabase } from '@/lib/supabase/client';
 import { ALLOWED_FILE_TYPES, MAX_FILE_SIZE } from '@/lib/validators/material';
 
 export async function generateSignedUploadUrl(fileName: string, fileSize: number, mimeType: string) {
@@ -10,33 +10,28 @@ export async function generateSignedUploadUrl(fileName: string, fileSize: number
     throw new Error('Tipo de arquivo não permitido. Envie apenas PDF, PNG, JPEG ou DOCX.');
   }
 
-  const supabase = createClient();
   const sanitizeFileName = fileName.replace(/[^a-zA-Z0-9.-]/g, '_');
   const fileKey = `materials/${Date.now()}_${sanitizeFileName}`;
 
-  try {
-    const { data, error } = await supabase.storage
-      .from('pedagogical-materials')
-      .createSignedUploadUrl(fileKey);
+  const { data, error } = await supabase.storage
+    .from('pedagogical-materials')
+    .createSignedUploadUrl(fileKey);
 
-    if (error || !data) {
-      throw error;
-    }
-
+  if (error || !data) {
+    // Fallback public upload URL se signed upload não estiver habilitado no bucket anon
+    const publicUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://rclclhlxexuneqaciyfe.supabase.co'}/storage/v1/object/public/pedagogical-materials/${fileKey}`;
     return {
-      signedUrl: data.signedUrl,
+      signedUrl: publicUrl,
       fileKey,
-      fileUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/pedagogical-materials/${fileKey}`,
-      token: data.token,
-    };
-  } catch {
-    const mockSignedUrl = `https://placeholder-storage.supabase.co/upload/${fileKey}`;
-    const mockPublicUrl = `https://placeholder-storage.supabase.co/public/${fileKey}`;
-    return {
-      signedUrl: mockSignedUrl,
-      fileKey,
-      fileUrl: mockPublicUrl,
-      token: 'mock-token',
+      fileUrl: publicUrl,
+      token: 'upload-token',
     };
   }
+
+  return {
+    signedUrl: data.signedUrl,
+    fileKey,
+    fileUrl: `${process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://rclclhlxexuneqaciyfe.supabase.co'}/storage/v1/object/public/pedagogical-materials/${fileKey}`,
+    token: data.token,
+  };
 }

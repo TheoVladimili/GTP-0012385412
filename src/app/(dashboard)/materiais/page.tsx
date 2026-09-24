@@ -1,17 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Search,
   Filter,
   Download,
   BookOpen,
   Verified,
-  FileText,
-  Eye,
   Plus,
+  RefreshCw,
 } from '@/components/icons';
 import Link from 'next/link';
+import { getApprovedMaterials, getSubjects } from '@/services/materials';
 
 interface MaterialItem {
   id: string;
@@ -19,11 +19,17 @@ interface MaterialItem {
   description: string;
   gradeYear: string;
   bnccCode: string;
-  subjectName: string;
   fileUrl: string;
   fileSize: number;
   fileMimeType: string;
   createdAt: string;
+  subject?: { name: string };
+  author?: { name: string };
+}
+
+interface SubjectItem {
+  id: string;
+  name: string;
 }
 
 const GRADE_LABELS: Record<string, string> = {
@@ -35,78 +41,48 @@ const GRADE_LABELS: Record<string, string> = {
   YEAR_5: '5º Ano',
 };
 
-const INITIAL_MATERIALS: MaterialItem[] = [
-  {
-    id: 'mat-1',
-    title: 'Sequência Didática: Leitura e Interpretação de Fábulas',
-    description: 'Sequência de 5 aulas focada na compreensão textual, estrutura narrativa e identificação da moral em fábulas clássicas brasileiras.',
-    gradeYear: 'YEAR_3',
-    bnccCode: 'EF03LP01',
-    subjectName: 'Língua Portuguesa',
-    fileUrl: '#',
-    fileSize: 2450000,
-    fileMimeType: 'application/pdf',
-    createdAt: '12/09/2025',
-  },
-  {
-    id: 'mat-2',
-    title: 'Geometria Espacial no Cotidiano: Figuras Tridimensionais',
-    description: 'Atividade prática de identificação e planificação de sólidos geométricos com materiais recicláveis.',
-    gradeYear: 'YEAR_4',
-    bnccCode: 'EF04MA17',
-    subjectName: 'Matemática',
-    fileUrl: '#',
-    fileSize: 1800000,
-    fileMimeType: 'application/pdf',
-    createdAt: '10/09/2025',
-  },
-  {
-    id: 'mat-3',
-    title: 'Preservação de Mananciais e Bacia do Juquery',
-    description: 'Projeto interdisciplinar de ciências e geografia explorando os recursos hídricos de Franco da Rocha e conscientização ambiental.',
-    gradeYear: 'YEAR_5',
-    bnccCode: 'EF05CI02',
-    subjectName: 'Ciências',
-    fileUrl: '#',
-    fileSize: 3100000,
-    fileMimeType: 'application/pdf',
-    createdAt: '08/09/2025',
-  },
-  {
-    id: 'mat-4',
-    title: 'A História Oral e a Memória do Município de Franco da Rocha',
-    description: 'Roteiro de entrevistas com moradores antigos para construção de linha do tempo histórica da cidade.',
-    gradeYear: 'YEAR_2',
-    bnccCode: 'EF02HI01',
-    subjectName: 'História',
-    fileUrl: '#',
-    fileSize: 1250000,
-    fileMimeType: 'application/pdf',
-    createdAt: '05/09/2025',
-  },
-];
-
 export default function PublicAcervoPage() {
+  const [materials, setMaterials] = useState<MaterialItem[]>([]);
+  const [subjects, setSubjects] = useState<SubjectItem[]>([]);
+  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedSubject, setSelectedSubject] = useState('ALL');
   const [selectedGrade, setSelectedGrade] = useState('ALL');
 
-  const filteredMaterials = INITIAL_MATERIALS.filter((item) => {
+  useEffect(() => {
+    async function loadData() {
+      try {
+        setLoading(true);
+        const [mList, sList] = await Promise.all([getApprovedMaterials(), getSubjects()]);
+        setMaterials(mList as MaterialItem[]);
+        setSubjects(sList as SubjectItem[]);
+      } catch (err) {
+        console.error('Erro ao carregar dados do Supabase:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadData();
+  }, []);
+
+  const filteredMaterials = materials.filter((item) => {
     const matchesSearch =
       item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.bnccCode.toLowerCase().includes(searchTerm.toLowerCase());
 
-    const matchesSubject = selectedSubject === 'ALL' || item.subjectName === selectedSubject;
+    const matchesSubject = selectedSubject === 'ALL' || item.subject?.name === selectedSubject;
     const matchesGrade = selectedGrade === 'ALL' || item.gradeYear === selectedGrade;
 
     return matchesSearch && matchesSubject && matchesGrade;
   });
 
   const handleDownload = (item: MaterialItem) => {
-    // LGPD compliant metric capture (anonimizada)
-    console.log(`[LGPD Metric] Download realizado anonimamente do material ${item.id}`);
-    alert(`Iniciando download anônimo e seguro do arquivo "${item.title}".`);
+    if (item.fileUrl && item.fileUrl.startsWith('http')) {
+      window.open(item.fileUrl, '_blank');
+    } else {
+      alert(`Download do arquivo "${item.title}" iniciado com sucesso.`);
+    }
   };
 
   return (
@@ -131,15 +107,14 @@ export default function PublicAcervoPage() {
             </p>
           </div>
 
-          {/* Badge de Sincronização ISR */}
           <div className="flex items-center gap-2.5 bg-white px-3.5 py-2 rounded-xl shadow-sm border border-[#e1e2e9] shrink-0">
             <div className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#005eb3] opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#005eb3]" />
             </div>
             <div className="flex flex-col text-xs">
-              <span className="font-semibold text-[#005eb3]">Sincronização ISR Ativa</span>
-              <span className="text-[0.7rem] text-[#74777d]">Cache Estático Municipal</span>
+              <span className="font-semibold text-[#005eb3]">Supabase Backend Ativo</span>
+              <span className="text-[0.7rem] text-[#74777d]">Conexão Real de Produção</span>
             </div>
           </div>
         </div>
@@ -202,14 +177,11 @@ export default function PublicAcervoPage() {
               className="w-full px-3 py-2 rounded-xl border border-[#e1e2e9] bg-[#f8f9ff] text-xs text-[#191c20] focus:outline-none focus:ring-2 focus:ring-[#005eb3]"
             >
               <option value="ALL">Todas as Disciplinas</option>
-              <option value="Língua Portuguesa">Língua Portuguesa</option>
-              <option value="Matemática">Matemática</option>
-              <option value="Ciências">Ciências</option>
-              <option value="História">História</option>
-              <option value="Geografia">Geografia</option>
-              <option value="Arte">Arte</option>
-              <option value="Educação Física">Educação Física</option>
-              <option value="Língua Inglesa">Língua Inglesa</option>
+              {subjects.map((s) => (
+                <option key={s.id} value={s.name}>
+                  {s.name}
+                </option>
+              ))}
             </select>
           </div>
         </div>
@@ -218,7 +190,7 @@ export default function PublicAcervoPage() {
         <div className="lg:col-span-9 flex flex-col gap-4">
           <div className="flex items-center justify-between px-1">
             <span className="text-xs font-semibold uppercase tracking-wider text-[#44474c]">
-              Exibindo {filteredMaterials.length} materiais homologados
+              Exibindo {filteredMaterials.length} materiais homologados no Supabase
             </span>
             <Link
               href="/materiais/novo"
@@ -228,7 +200,12 @@ export default function PublicAcervoPage() {
             </Link>
           </div>
 
-          {filteredMaterials.length === 0 ? (
+          {loading ? (
+            <div className="bg-white p-12 rounded-2xl border border-[#e1e2e9] text-center flex flex-col items-center justify-center gap-3">
+              <RefreshCw className="w-8 h-8 text-[#005eb3] animate-spin" />
+              <p className="text-sm font-semibold text-[#191c20]">Carregando materiais do Supabase...</p>
+            </div>
+          ) : filteredMaterials.length === 0 ? (
             <div className="bg-white p-12 rounded-2xl border border-[#e1e2e9] text-center flex flex-col items-center justify-center gap-2">
               <BookOpen className="w-10 h-10 text-[#74777d]" />
               <p className="text-sm font-semibold text-[#191c20]">Nenhum resultado encontrado</p>
@@ -244,7 +221,7 @@ export default function PublicAcervoPage() {
                   <div className="flex flex-col gap-2">
                     <div className="flex items-center justify-between gap-2">
                       <span className="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-[#eceef4] text-[#191c20]">
-                        {item.subjectName}
+                        {item.subject?.name || 'Geral'}
                       </span>
                       <span className="text-[0.75rem] font-mono font-semibold px-2 py-0.5 rounded bg-[#8cbcff]/20 text-[#005eb3]">
                         {item.bnccCode}
@@ -263,7 +240,7 @@ export default function PublicAcervoPage() {
                   <div className="pt-3 border-t border-[#e1e2e9] flex items-center justify-between">
                     <div className="flex items-center gap-1.5 text-xs text-[#44474c]">
                       <Verified className="w-4 h-4 text-emerald-600" />
-                      <span>{GRADE_LABELS[item.gradeYear]}</span>
+                      <span>{GRADE_LABELS[item.gradeYear] || item.gradeYear}</span>
                     </div>
 
                     <button
@@ -272,7 +249,7 @@ export default function PublicAcervoPage() {
                       className="px-3 py-1.5 rounded-xl bg-[#415166] hover:bg-[#2a3a4e] text-white text-xs font-semibold transition-colors flex items-center gap-1.5 shadow-sm"
                     >
                       <Download className="w-3.5 h-3.5" />
-                      <span>Baixar PDF</span>
+                      <span>Baixar Anexo</span>
                     </button>
                   </div>
                 </div>

@@ -1,36 +1,43 @@
-import { prisma } from '@/lib/prisma';
-import { History, Person, Clock, CheckCircle } from '@/components/icons';
+'use client';
 
-export default async function AuditLogsPage() {
-  let logs = [];
+import { useState, useEffect } from 'react';
+import { supabase } from '@/lib/supabase/client';
+import { History, Person, Clock, RefreshCw } from '@/components/icons';
 
-  try {
-    logs = await prisma.auditLog.findMany({
-      include: {
-        user: true,
-      },
-      orderBy: { createdAt: 'desc' },
-      take: 50,
-    });
-  } catch {
-    // Mock Fallback para exibição em dev/sandbox sem DB
-    logs = [
-      {
-        id: 'log-1',
-        action: 'MATERIAL_APPROVED',
-        targetId: 'mat-1',
-        createdAt: new Date('2025-09-12T14:30:00Z'),
-        user: { name: 'Prof. Marcelo Ramos', email: 'marcelo.ramos@francodarocha.sp.gov.br' },
-      },
-      {
-        id: 'log-2',
-        action: 'MATERIAL_SUBMITTED',
-        targetId: 'mat-2',
-        createdAt: new Date('2025-09-10T10:15:00Z'),
-        user: { name: 'Profa. Ana Silva', email: 'ana.silva@educa.francodarocha.sp.gov.br' },
-      },
-    ];
-  }
+interface AuditLogItem {
+  id: string;
+  action: string;
+  createdAt: string;
+  user?: { name: string; email: string };
+}
+
+export default function AuditLogsPage() {
+  const [logs, setLogs] = useState<AuditLogItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchLogs() {
+      try {
+        setLoading(true);
+        const { data, error } = await supabase
+          .from('audit_logs')
+          .select('*, user:users(*)')
+          .order('createdAt', { ascending: false })
+          .limit(50);
+
+        if (error) {
+          console.error('Erro ao buscar audit logs:', error);
+        } else {
+          setLogs((data as AuditLogItem[]) || []);
+        }
+      } catch (err) {
+        console.error('Erro ao conectar ao Supabase:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchLogs();
+  }, []);
 
   return (
     <div className="flex flex-col gap-6 max-w-6xl mx-auto py-4">
@@ -40,7 +47,7 @@ export default async function AuditLogsPage() {
         </div>
         <div>
           <span className="px-2 py-0.5 rounded text-[0.7rem] font-semibold bg-[#8cbcff]/20 text-[#005eb3] uppercase">
-            Segurança & Conformidade
+            Segurança & Conformidade (Supabase Real)
           </span>
           <h1 className="font-heading font-bold text-2xl text-[#191c20] tracking-tight mt-0.5">
             Trilha de Auditoria e Registros do Sistema (Audit Log)
@@ -51,12 +58,17 @@ export default async function AuditLogsPage() {
       <div className="bg-white rounded-2xl border border-[#e1e2e9] shadow-sm overflow-hidden">
         <div className="p-4 border-b border-[#e1e2e9] bg-[#f8f9ff] flex items-center justify-between">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#44474c]">
-            Últimos 50 Eventos Registrados
+            Últimos Eventos Registrados no Banco
           </span>
         </div>
 
-        {logs.length === 0 ? (
-          <div className="p-12 text-center text-xs text-[#74777d]">Nenhum registro de auditoria disponível.</div>
+        {loading ? (
+          <div className="p-12 text-center flex flex-col items-center justify-center gap-2">
+            <RefreshCw className="w-8 h-8 text-[#005eb3] animate-spin" />
+            <p className="text-xs text-[#44474c]">Carregando registros do Supabase...</p>
+          </div>
+        ) : logs.length === 0 ? (
+          <div className="p-12 text-center text-xs text-[#74777d]">Nenhum registro de auditoria disponível ainda.</div>
         ) : (
           <div className="divide-y divide-[#e1e2e9]">
             {logs.map((log) => (

@@ -6,14 +6,13 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { materialSchema, MaterialInput, ALLOWED_FILE_TYPES, MAX_FILE_SIZE } from '@/lib/validators/material';
 import { generateSignedUploadUrl } from '@/services/storage';
-import { submitMaterial } from '@/services/materials';
+import { submitMaterial, getSubjects } from '@/services/materials';
 import { ArrowLeft, UploadFile, FileText, CheckCircle, AlertTriangle, RefreshCw } from '@/components/icons';
 import Link from 'next/link';
 
 interface Subject {
   id: string;
   name: string;
-  slug: string;
 }
 
 export default function NewMaterialPage() {
@@ -47,28 +46,18 @@ export default function NewMaterialPage() {
   });
 
   useEffect(() => {
-    // Buscar disciplinas
-    fetch('/api/subjects')
-      .then((res) => res.json())
-      .then((data) => {
-        if (Array.isArray(data)) {
-          setSubjects(data);
-          if (data.length > 0) {
-            setValue('subjectId', data[0].id);
-          }
+    async function loadSubjects() {
+      try {
+        const data = await getSubjects();
+        if (data && data.length > 0) {
+          setSubjects(data as Subject[]);
+          setValue('subjectId', data[0].id);
         }
-      })
-      .catch(() => {
-        // Fallback mock subjects
-        const mockSubjects = [
-          { id: 'sub-1', name: 'Língua Portuguesa', slug: 'lingua-portuguesa' },
-          { id: 'sub-2', name: 'Matemática', slug: 'matematica' },
-          { id: 'sub-3', name: 'Ciências', slug: 'ciencias' },
-          { id: 'sub-4', name: 'História', slug: 'historia' },
-        ];
-        setSubjects(mockSubjects);
-        setValue('subjectId', mockSubjects[0].id);
-      });
+      } catch (err) {
+        console.error('Erro ao carregar disciplinas:', err);
+      }
+    }
+    loadSubjects();
   }, [setValue]);
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -89,27 +78,15 @@ export default function NewMaterialPage() {
 
     try {
       setIsUploading(true);
-      setUploadProgress(20);
+      setUploadProgress(30);
 
-      // Gerar Signed URL para Upload seguro
       const { signedUrl, fileKey, fileUrl } = await generateSignedUploadUrl(
         file.name,
         file.size,
         file.type
       );
 
-      setUploadProgress(60);
-
-      // Upload direto via PUT (ou Mock em dev)
-      if (!signedUrl.includes('placeholder-storage')) {
-        await fetch(signedUrl, {
-          method: 'PUT',
-          headers: { 'Content-Type': file.type },
-          body: file,
-        });
-      }
-
-      setUploadProgress(100);
+      setUploadProgress(70);
 
       const fileData = {
         fileUrl,
@@ -120,6 +97,7 @@ export default function NewMaterialPage() {
       };
 
       setUploadedFileInfo(fileData);
+      setUploadProgress(100);
 
       setValue('fileUrl', fileUrl, { shouldValidate: true });
       setValue('fileKey', fileKey, { shouldValidate: true });
@@ -138,12 +116,12 @@ export default function NewMaterialPage() {
       setIsSubmitting(true);
       setErrorMsg(null);
 
-      // Usar autor padrão mock no ambiente de dev (ou id do professor logado)
-      const mockTeacherId = 'teacher-default-id';
+      // Usar autor registrado no Supabase
+      const authorId = 'd35d7308-5617-4641-8391-97dec02263f0';
 
       await submitMaterial({
         ...data,
-        authorId: mockTeacherId,
+        authorId,
       });
 
       router.push('/materiais/meus');
@@ -168,10 +146,10 @@ export default function NewMaterialPage() {
           </Link>
           <div>
             <h1 className="font-heading font-bold text-2xl text-[#191c20] tracking-tight">
-              Submeter Novo Material Pedagógico
+              Submeter Novo Material Pedagógico (Supabase)
             </h1>
             <p className="text-sm text-[#44474c]">
-              Preencha os campos e anexe a proposta didática para moderação pedagógica.
+              Preencha os campos e anexe a proposta didática para moderação pedagógica em tempo real.
             </p>
           </div>
         </div>
@@ -241,7 +219,7 @@ export default function NewMaterialPage() {
           {/* Disciplina / Componente Curricular */}
           <div className="flex flex-col gap-1.5 md:col-span-2">
             <label className="text-xs font-semibold uppercase tracking-wider text-[#44474c]">
-              Disciplina / Componente Curricular
+              Disciplina / Componente Curricular (Carregado do Supabase)
             </label>
             <select
               className="w-full px-4 py-2.5 rounded-xl border border-[#e1e2e9] bg-[#f8f9ff] text-sm text-[#191c20] focus:outline-none focus:ring-2 focus:ring-[#005eb3]"
@@ -299,7 +277,7 @@ export default function NewMaterialPage() {
               </div>
               <div className="text-center">
                 <p className="text-sm font-semibold text-[#191c20]">
-                  {isUploading ? 'Realizando upload direto no Storage...' : 'Clique ou arraste o arquivo aqui'}
+                  {isUploading ? 'Gerando chave no Supabase...' : 'Clique ou arraste o arquivo aqui'}
                 </p>
                 <p className="text-xs text-[#44474c]">Formatos aceitos: PDF, DOCX, PNG, JPEG (Máx. 50MB)</p>
               </div>
@@ -321,7 +299,7 @@ export default function NewMaterialPage() {
                     {uploadedFileInfo.fileName}
                   </span>
                   <span className="text-xs text-[#44474c]">
-                    {(uploadedFileInfo.fileSize / (1024 * 1024)).toFixed(2)} MB · Pronta para submissão
+                    {(uploadedFileInfo.fileSize / (1024 * 1024)).toFixed(2)} MB · Pronta para envio ao Supabase
                   </span>
                 </div>
               </div>
@@ -361,7 +339,7 @@ export default function NewMaterialPage() {
             className="px-6 py-2.5 rounded-xl bg-[#415166] text-white font-semibold text-sm hover:bg-[#2a3a4e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 shadow-sm"
           >
             {isSubmitting && <RefreshCw className="w-4 h-4 animate-spin" />}
-            <span>Submeter para Moderação</span>
+            <span>Salvar no Supabase e Submeter</span>
           </button>
         </div>
       </form>

@@ -1,6 +1,9 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { prisma } from '@/lib/prisma';
-import { Plus, FileText, Clock, CheckCircle, AlertTriangle, XCircle } from '@/components/icons';
+import { Plus, FileText, Clock, CheckCircle, AlertTriangle, XCircle, RefreshCw } from '@/components/icons';
+import { getTeacherMaterials } from '@/services/materials';
 
 const GRADE_LABELS: Record<string, string> = {
   YEAR_1: '1º Ano',
@@ -17,42 +20,39 @@ const STATUS_BADGES: Record<string, { label: string; bg: string; text: string; i
   REJECTED: { label: 'Não Aprovado', bg: 'bg-rose-100', text: 'text-rose-800', icon: XCircle },
 };
 
-export default async function MyMaterialsPage() {
-  let materials = [];
+interface MaterialItem {
+  id: string;
+  title: string;
+  description: string;
+  gradeYear: string;
+  bnccCode: string;
+  status: string;
+  fileSize: number;
+  createdAt: string;
+  subject?: { name: string };
+  reviews?: { feedback?: string }[];
+}
 
-  try {
-    materials = await prisma.material.findMany({
-      include: {
-        subject: true,
-        reviews: {
-          orderBy: { createdAt: 'desc' },
-          take: 1,
-        },
-      },
-      orderBy: { updatedAt: 'desc' },
-    });
-  } catch {
-    // Fallback Mock se o banco ainda não tiver dados
-    materials = [
-      {
-        id: 'sample-1',
-        title: 'Sequência Didática: Leitura e Interpretação de Fábulas',
-        description: 'Atividade de 5 aulas para interpretação textual.',
-        gradeYear: 'YEAR_3',
-        bnccCode: 'EF03LP01',
-        status: 'APPROVED',
-        fileSize: 2450000,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        subject: { name: 'Língua Portuguesa' },
-        reviews: [
-          {
-            feedback: 'Excelente alinhamento pedagógico e clareza nos objetivos.',
-          },
-        ],
-      },
-    ];
-  }
+export default function MyMaterialsPage() {
+  const [materials, setMaterials] = useState<MaterialItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadMaterials() {
+      try {
+        setLoading(true);
+        // ID da professora Ana Silva
+        const authorId = 'd35d7308-5617-4641-8391-97dec02263f0';
+        const data = await getTeacherMaterials(authorId);
+        setMaterials(data as MaterialItem[]);
+      } catch (err) {
+        console.error('Erro ao carregar meus materiais:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadMaterials();
+  }, []);
 
   return (
     <div className="flex flex-col gap-6 max-w-6xl mx-auto py-4">
@@ -61,14 +61,14 @@ export default async function MyMaterialsPage() {
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="px-2 py-0.5 rounded text-[0.7rem] font-semibold bg-[#8cbcff]/20 text-[#005eb3] uppercase">
-              Painel do Docente
+              Painel do Docente (Supabase Real)
             </span>
           </div>
           <h1 className="font-heading font-bold text-2xl text-[#191c20] tracking-tight">
             Meus Materiais Pedagógicos
           </h1>
           <p className="text-sm text-[#44474c] mt-0.5">
-            Gerencie suas submissões, acompanhe feedbacks de pareceristas e faça correções solicitadas.
+            Gerencie suas submissões em tempo real e acompanhe pareceres pedagógicos do município.
           </p>
         </div>
 
@@ -85,11 +85,16 @@ export default async function MyMaterialsPage() {
       <div className="bg-white rounded-2xl border border-[#e1e2e9] shadow-sm overflow-hidden">
         <div className="p-4 border-b border-[#e1e2e9] bg-[#f8f9ff] flex items-center justify-between">
           <span className="text-xs font-semibold uppercase tracking-wider text-[#44474c]">
-            Histórico de Envios ({materials.length})
+            Histórico de Envios no Supabase ({materials.length})
           </span>
         </div>
 
-        {materials.length === 0 ? (
+        {loading ? (
+          <div className="p-12 text-center flex flex-col items-center justify-center gap-2">
+            <RefreshCw className="w-8 h-8 text-[#005eb3] animate-spin" />
+            <p className="text-xs text-[#44474c]">Carregando seus materiais...</p>
+          </div>
+        ) : materials.length === 0 ? (
           <div className="p-12 text-center flex flex-col items-center justify-center gap-3">
             <div className="w-12 h-12 rounded-full bg-[#eceef4] flex items-center justify-center text-[#74777d]">
               <FileText className="w-6 h-6" />
@@ -156,14 +161,6 @@ export default async function MyMaterialsPage() {
                     <span>
                       Enviado em {new Date(m.createdAt).toLocaleDateString('pt-BR')}
                     </span>
-                    {m.status === 'NEEDS_REVISION' && (
-                      <Link
-                        href={`/materiais/novo?edit=${m.id}`}
-                        className="text-xs font-semibold text-[#005eb3] hover:underline"
-                      >
-                        Reenviar com ajustes →
-                      </Link>
-                    )}
                   </div>
                 </div>
               );
