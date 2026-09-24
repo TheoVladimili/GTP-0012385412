@@ -39,6 +39,7 @@ jobs:
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://rclclhlxexuneqaciyfe.supabase.co' }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_xYGSuE0TZejDPOgr-IYkGg_2p8rEi43' }}
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
         run: |
           npm run build
           touch out/.nojekyll
