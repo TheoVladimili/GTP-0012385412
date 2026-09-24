@@ -29,7 +29,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
 
       - name: Install Dependencies
@@ -41,6 +41,7 @@ jobs:
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_xYGSuE0TZejDPOgr-IYkGg_2p8rEi43' }}
         run: |
           npm run build
+          touch out/.nojekyll
           cp out/materiais.html out/index.html || true
 
       - name: Setup GitHub Pages
